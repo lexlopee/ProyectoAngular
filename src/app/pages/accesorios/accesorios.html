@@ -1,0 +1,79 @@
+<!-- Contenedor para mostrar mensajes al usuario (por ejemplo: "Producto añadido") -->
+<div id="mensaje" class="mensaje"></div>
+
+<!-- Sección principal de accesorios -->
+<section class="accesorios">
+  <h2>Accesorios</h2>
+
+  <!-- Galería que contiene todas las tarjetas de productos -->
+  <div class="galeria">
+
+    <!-- 📌 Producto 1: Gafas de sol -->
+    <div class="tarjeta">
+      <!-- Imagen del producto -->
+      <img
+        src="https://www.hawkersco.com/on/demandware.static/-/Sites-Master-Catalog-Sunglasses/default/dw2a0c821b/images/large/HONR21BBTP_L.jpg"
+        alt="Gafas de sol"
+      />
+      <h3>Gafas de sol</h3>
+
+      <!-- Precio del producto -->
+      <p class="precio">29.99€</p>
+
+      <!-- Botón que llama a la función anadir(...) enviando nombre, precio e imagen -->
+      <button
+        (click)="anadir(
+          'Gafas de sol',
+          29.99,
+          'https://www.hawkersco.com/on/demandware.static/-/Sites-Master-Catalog-Sunglasses/default/dw2a0c821b/images/large/HONR21BBTP_L.jpg'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+
+    <!-- 📌 Producto 2: Gorra Azul -->
+    <div class="tarjeta">
+      <img
+        src="https://i8.amplience.net/t/jpl/jdes_product_list?plu=jd_771795_al&qlt=85&qlt=92&w=320&h=320&v=1&fmt=auto"
+        alt="Gorra Azul"
+      />
+      <h3>Gorra Azul</h3>
+      <p class="precio">19.99€</p>
+
+      <!-- Botón que añade el producto al carrito -->
+      <button
+        (click)="anadir(
+          'Gorra Azul',
+          19.99,
+          'https://i8.amplience.net/t/jpl/jdes_product_list?plu=jd_771795_al&qlt=85&qlt=92&w=320&h=320&v=1&fmt=auto'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+
+    <!-- 📌 Producto 3: Collar duo plata -->
+    <div class="tarjeta">
+      <img
+        src="https://singularu.com/cdn/shop/products/WCHLS0A925P00XX_2_puesta_1e23626a-e76d-48d5-a222-eb7ecff3333b.jpg?v=1669027488&width=3000"
+        alt="Collar duo plata"
+      />
+      <h3>Collar duo plata</h3>
+      <p class="precio">24.99€</p>
+
+      <!-- Botón que llama a anadir con los datos del producto -->
+      <button
+        (click)="anadir(
+          'Collar duo plata',
+          24.99,
+          'https://singularu.com/cdn/shop/products/WCHLS0A925P00XX_2_puesta_1e23626a-e76d-48d5-a222-eb7ecff3333b.jpg?v=1669027488&width=3000'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+
+  </div>
+
+</section>

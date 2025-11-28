@@ -1,0 +1,78 @@
+<div id="mensaje" class="mensaje"></div>
+<!-- Contenedor para mostrar mensajes temporales cuando se añade un producto al carrito. -->
+
+<section class="chaquetas">
+  <h2>Chaquetas</h2>
+  <!-- Título de la sección de chaquetas -->
+
+  <div class="galeria">
+    <!-- Contenedor que agrupa todas las tarjetas de productos -->
+
+    <!-- Primer producto: Chaqueta Azul -->
+    <div class="tarjeta">
+      <img
+        src="https://www.botteroski.com/46890-medium_default/458336-chaqueta-de-plumas-the-north-face-diablo.jpg"
+        alt="Chaqueta Azul"
+      />
+      <!-- Imagen del producto con texto alternativo -->
+
+      <h3>Chaqueta Azul Diablo North Face</h3>
+      <!-- Nombre del producto -->
+
+      <p class="precio">150.00€</p>
+      <!-- Precio del producto -->
+
+      <button
+        (click)="anadir(
+          'Chaqueta Azul Diablo North Face',
+          150.00,
+          'https://www.botteroski.com/46890-medium_default/458336-chaqueta-de-plumas-the-north-face-diablo.jpg'
+        )"
+      >
+        Añadir al carrito
+      </button>
+      <!-- Botón que llama al método 'anadir' del componente Angular,
+           pasando nombre, precio e imagen del producto. -->
+    </div>
+
+    <!-- Segundo producto: Chaqueta Roja Deportiva -->
+    <div class="tarjeta">
+      <img
+        src="https://cdn.siroko.com/products/67c58e51dac0a/590/704/crop_center.jpg?v=1743160410"
+        alt="Chaqueta Roja Deportiva"
+      />
+      <h3>Chaqueta Roja Deportiva</h3>
+      <p class="precio">59.99€</p>
+      <button
+        (click)="anadir(
+          'Chaqueta Roja Deportiva',
+          59.9,
+          'https://cdn.siroko.com/products/67c58e51dac0a/590/704/crop_center.jpg?v=1743160410'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+
+    <!-- Tercer producto: Chaqueta Cuero -->
+    <div class="tarjeta">
+      <img
+        src="https://store.hondacanarias.com/media/catalog/product/cache/2d3e303121a652959edd5ff74af5177b/2/3/233-7520022-54_1.jpg"
+        alt="Chaqueta Cuero"
+      />
+      <h3>Chaqueta Cuero</h3>
+      <p class="precio">109.99€</p>
+      <button
+        (click)="anadir(
+          'Chaqueta Cuero',
+          109.99,
+          'https://store.hondacanarias.com/media/catalog/product/cache/2d3e303121a652959edd5ff74af5177b/2/3/233-7520022-54_1.jpg'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+
+  </div>
+  <!-- Fin de galería de chaquetas -->
+</section>

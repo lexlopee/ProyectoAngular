@@ -1,0 +1,73 @@
+<!-- Contenedor para mostrar mensajes dinámicos (ej. "producto añadido a la cesta") -->
+<div id="mensaje" class="mensaje"></div>
+
+<!-- Sección principal dedicada a los zapatos -->
+<section class="zapatos">
+  <!-- Título de la sección -->
+  <h2>Zapatos</h2>
+
+  <!-- Galería de productos en formato de tarjetas -->
+  <div class="galeria">
+
+    <!-- Tarjeta de producto: Zapatillas Deportivas Negras -->
+    <div class="tarjeta">
+      <!-- Imagen del producto -->
+      <img
+        src="https://img.joomcdn.net/1a3b535c210b6b96c09493591c422dc11d9bbec4_original.jpeg"
+        alt="Zapatillas Deportivas Negras"
+      />
+      <!-- Nombre del producto -->
+      <h3>Zapatillas Deportivas Negras</h3>
+      <!-- Precio del producto -->
+      <p class="precio">140€</p>
+      <!-- Botón que llama al método anadir() del componente Angular -->
+      <button
+        (click)="anadir(
+          'Zapatillas Deportivas Negras',
+          140,
+          'https://img.joomcdn.net/1a3b535c210b6b96c09493591c422dc11d9bbec4_original.jpeg'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+
+    <!-- Tarjeta de producto: Zapatillas con Tacón Azules -->
+    <div class="tarjeta">
+      <img
+        src="https://luisatoledo.es/2469/zapatos-azules-tacon-ancho-eva.jpg"
+        alt="Zapatillas con Tacon Azules"
+      />
+      <h3>Zapatillas con Tacon Azules</h3>
+      <p class="precio">69€</p>
+      <button
+        (click)="anadir(
+          'Zapatillas con Tacon Azules',
+          69,
+          'https://luisatoledo.es/2469/zapatos-azules-tacon-ancho-eva.jpg'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+
+    <!-- Tarjeta de producto: Crocs Negras -->
+    <div class="tarjeta">
+      <img
+        src="https://i5.walmartimages.com/asr/d15b955f-63ec-4cdc-aaa4-37b28807b81f.6856aa51ea991e5595d5396efb074517.jpeg"
+        alt="Crocs Negras"
+      />
+      <h3>Crocs Negras</h3>
+      <p class="precio">110€</p>
+      <button
+        (click)="anadir(
+          'Crocs Negras',
+          110,
+          'https://i5.walmartimages.com/asr/d15b955f-63ec-4cdc-aaa4-37b28807b81f.6856aa51ea991e5595d5396efb074517.jpeg'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+  </div>
+</section>

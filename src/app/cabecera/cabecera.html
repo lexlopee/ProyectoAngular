@@ -1,0 +1,39 @@
+<nav class="navbar">
+  <!-- Contenedor del logo de la tienda -->
+  <div class="logo">
+    <!-- Enlace que redirige a la ruta principal -->
+    <a routerLink="">FashionStore</a>
+  </div>
+
+  <ul class="nav-links">
+    <!-- Enlaces a las distintas categorías del catálogo -->
+    <li><a routerLink="camisetas" routerLinkActive="active">Camisetas</a></li>
+    <li><a routerLink="pantalones" routerLinkActive="active">Pantalones</a></li>
+    <li><a routerLink="chaquetas" routerLinkActive="active">Chaquetas</a></li>
+    <li><a routerLink="accesorios" routerLinkActive="active">Accesorios</a></li>
+    <li><a routerLink="zapatos" routerLinkActive="active">Zapatos</a></li>
+
+    <!-- Enlace a la cesta con contador dinámico de artículos -->
+    <li>
+      <a routerLink="cesta" routerLinkActive="active">
+        Cesta 🛒
+        <!-- Muestra la cantidad de productos en la cesta -->
+        <span id="cantidadCesta">{{ cantidadCesta }}</span>
+      </a>
+    </li>
+
+    <!-- Sección donde el usuario accede a su perfil o ajustes -->
+    <li><a routerLink="seccion-usuario" routerLinkActive="active">Sección usuario</a></li>
+  </ul>
+
+  <!-- Nueva sintaxis Angular @if para mostrar elementos solo si existe 'usuario' -->
+  @if (usuario) {
+    <li class="usuario-nav">
+      <!-- Nombre del usuario logueado -->
+      <span class="usuario-nombre">{{ usuario }}</span>
+
+      <!-- Botón que ejecuta el método cerrarSesion() -->
+      <button class="btn-logout" (click)="cerrarSesion()">Cerrar sesión</button>
+    </li>
+  }
+</nav>

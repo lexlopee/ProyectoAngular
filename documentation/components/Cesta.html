@@ -1,0 +1,930 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>proyecto2 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">proyecto2 documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Cesta</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/cesta/cesta.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de la página de cesta.</p>
+<ul>
+<li>Muestra los productos añadidos por el usuario.</li>
+<li>Permite eliminar productos individuales o vaciar la cesta completa.</li>
+<li>Calcula y muestra el total de la compra.</li>
+<li>Se actualiza automáticamente al navegar a la ruta <code>/cesta</code>.</li>
+</ul>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>AfterViewInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-cesta</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./cesta.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./cesta.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#total" >total</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actualizarCesta" >actualizarCesta</a>
+                            </li>
+                            <li>
+                                <a href="#eliminar" >eliminar</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#vaciar" >vaciar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(renderer: Renderer2, el: ElementRef, cestaService: <a href="../injectables/CestaService.html" target="_self">CestaService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/cesta/cesta.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                    <code>Renderer2</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Utilidad de Angular para manipular el DOM de forma segura.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>el</td>
+                                                  
+                                                        <td>
+                                                                    <code>ElementRef</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Referencia al elemento raíz del componente.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>cestaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CestaService.html" target="_self" >CestaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para manejar productos de la cesta.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Router para detectar navegación y actualizar la vista.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarCesta"></a>
+                    <span class="name">
+                        <span ><b>actualizarCesta</b></span>
+                        <a href="#actualizarCesta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarCesta()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/pages/cesta/cesta.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la vista de la cesta.</p>
+<ul>
+<li>Limpia el contenedor.</li>
+<li>Renderiza los productos actuales.</li>
+<li>Calcula y muestra el total.</li>
+<li>Lanza un evento para actualizar la cabecera con la cantidad de productos.</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminar"></a>
+                    <span class="name">
+                        <span ><b>eliminar</b></span>
+                        <a href="#eliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminar(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="121"
+                                    class="link-to-prism">src/app/pages/cesta/cesta.ts:121</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina un producto de la cesta por su ID.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Identificador del producto a eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/pages/cesta/cesta.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hook del ciclo de vida de Angular.
+Se ejecuta después de que la vista se inicializa.</p>
+<ul>
+<li>Renderiza los productos iniciales.</li>
+<li>Detecta navegación a <code>/cesta</code> para actualizar la lista.</li>
+<li>Configura el botón de vaciar cesta.</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vaciar"></a>
+                    <span class="name">
+                        <span ><b>vaciar</b></span>
+                        <a href="#vaciar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>vaciar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/pages/cesta/cesta.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vacía toda la cesta y actualiza la vista.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="total"></a>
+                    <span class="name">
+                        <span ><b>total</b></span>
+                        <a href="#total"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/cesta/cesta.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Total acumulado de la cesta.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, Renderer2, AfterViewInit } from &#x27;@angular/core&#x27;;
+import { Router, NavigationEnd } from &#x27;@angular/router&#x27;;
+import { CestaService } from &#x27;../../services/cesta.service&#x27;;
+
+/**
+ * Componente de la página de cesta.
+ *
+ * - Muestra los productos añadidos por el usuario.
+ * - Permite eliminar productos individuales o vaciar la cesta completa.
+ * - Calcula y muestra el total de la compra.
+ * - Se actualiza automáticamente al navegar a la ruta &#x60;/cesta&#x60;.
+ *
+ * @version 1.0.0
+ */
+@Component({
+  selector: &#x27;app-cesta&#x27;,
+  standalone: true,
+  templateUrl: &#x27;./cesta.html&#x27;,
+  styleUrls: [&#x27;./cesta.css&#x27;]
+})
+export class Cesta implements AfterViewInit {
+  /**
+   * Total acumulado de la cesta.
+   */
+  total &#x3D; 0;
+
+  /**
+   * Constructor del componente.
+   * @param renderer Utilidad de Angular para manipular el DOM de forma segura.
+   * @param el Referencia al elemento raíz del componente.
+   * @param cestaService Servicio para manejar productos de la cesta.
+   * @param router Router para detectar navegación y actualizar la vista.
+   */
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private cestaService: CestaService,
+    private router: Router
+  ) {}
+
+  /**
+   * Hook del ciclo de vida de Angular.
+   * Se ejecuta después de que la vista se inicializa.
+   * - Renderiza los productos iniciales.
+   * - Detecta navegación a &#x60;/cesta&#x60; para actualizar la lista.
+   * - Configura el botón de vaciar cesta.
+   */
+  ngAfterViewInit(): void {
+    this.actualizarCesta();
+
+    this.router.events.subscribe(event &#x3D;&gt; {
+      if (event instanceof NavigationEnd &amp;&amp; event.urlAfterRedirects &#x3D;&#x3D;&#x3D; &#x27;/cesta&#x27;) {
+        this.actualizarCesta();
+      }
+    });
+
+    const btnVaciar &#x3D; this.el.nativeElement.querySelector(&#x27;#vaciar-cesta&#x27;);
+    if (btnVaciar) {
+      this.renderer.listen(btnVaciar, &#x27;click&#x27;, () &#x3D;&gt; this.vaciar());
+    }
+  }
+
+  /**
+   * Actualiza la vista de la cesta.
+   * - Limpia el contenedor.
+   * - Renderiza los productos actuales.
+   * - Calcula y muestra el total.
+   * - Lanza un evento para actualizar la cabecera con la cantidad de productos.
+   */
+  actualizarCesta(): void {
+    const contenedor &#x3D; this.el.nativeElement.querySelector(&#x27;#lista-cesta&#x27;);
+    const vacia &#x3D; this.el.nativeElement.querySelector(&#x27;#vacia&#x27;);
+    const totalSpan &#x3D; this.el.nativeElement.querySelector(&#x27;#total-cesta&#x27;);
+
+    if (!contenedor || !vacia || !totalSpan) return;
+
+    contenedor.innerHTML &#x3D; &#x27;&#x27;;
+
+    const productos &#x3D; this.cestaService.getProductos();
+
+    vacia.style.display &#x3D; productos.length &#x3D;&#x3D;&#x3D; 0 ? &#x27;block&#x27; : &#x27;none&#x27;;
+
+    this.total &#x3D; this.cestaService.getTotal();
+    totalSpan.textContent &#x3D; this.total.toFixed(2);
+
+    window.dispatchEvent(new CustomEvent(&#x27;actualizarCestaCabecera&#x27;, { detail: productos.length }));
+
+    productos.forEach((p: any) &#x3D;&gt; {
+      const item &#x3D; this.renderer.createElement(&#x27;div&#x27;);
+      this.renderer.addClass(item, &#x27;item&#x27;);
+
+      const img &#x3D; this.renderer.createElement(&#x27;img&#x27;);
+      this.renderer.setAttribute(img, &#x27;src&#x27;, p.imagen);
+      this.renderer.setAttribute(img, &#x27;width&#x27;, &#x27;80&#x27;);
+      this.renderer.setAttribute(img, &#x27;alt&#x27;, p.nombre);
+
+      const info &#x3D; this.renderer.createElement(&#x27;div&#x27;);
+      const h3 &#x3D; this.renderer.createElement(&#x27;h3&#x27;);
+      h3.textContent &#x3D; p.nombre;
+
+      const precio &#x3D; this.renderer.createElement(&#x27;p&#x27;);
+      precio.textContent &#x3D; new Intl.NumberFormat(&#x27;es-ES&#x27;, { style: &#x27;currency&#x27;, currency: &#x27;EUR&#x27; }).format(p.precio);
+
+      const btn &#x3D; this.renderer.createElement(&#x27;button&#x27;);
+      btn.textContent &#x3D; &#x27;Eliminar&#x27;;
+      this.renderer.listen(btn, &#x27;click&#x27;, () &#x3D;&gt; this.eliminar(p.id));
+
+      this.renderer.appendChild(info, h3);
+      this.renderer.appendChild(info, precio);
+      this.renderer.appendChild(info, btn);
+      this.renderer.appendChild(item, img);
+      this.renderer.appendChild(item, info);
+      this.renderer.appendChild(contenedor, item);
+    });
+  }
+
+  /**
+   * Elimina un producto de la cesta por su ID.
+   * @param id Identificador del producto a eliminar.
+   */
+  eliminar(id: number): void {
+    this.cestaService.eliminarProducto(id);
+    this.actualizarCesta();
+  }
+
+  /**
+   * Vacía toda la cesta y actualiza la vista.
+   */
+  vaciar(): void {
+    this.cestaService.vaciar();
+    this.actualizarCesta();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h2&gt;Mi Cesta&lt;/h2&gt;
+&lt;!-- Título de la sección de la cesta --&gt;
+
+&lt;div id&#x3D;&quot;vacia&quot; style&#x3D;&quot;display:none;&quot;&gt;La cesta está vacía&lt;/div&gt;
+&lt;!-- Mensaje que aparece solo cuando no hay productos en la cesta.
+     Por defecto está oculto con display:none. --&gt;
+
+&lt;div id&#x3D;&quot;lista-cesta&quot;&gt;&lt;/div&gt;
+&lt;!-- Contenedor donde se mostrarán dinámicamente los productos añadidos a la cesta. --&gt;
+
+&lt;div class&#x3D;&quot;total-cesta&quot;&gt;
+  Total: &lt;span id&#x3D;&quot;total-cesta&quot;&gt;&lt;/span&gt; €
+&lt;/div&gt;
+&lt;!-- Aquí se muestra el total acumulado de los productos de la cesta.
+     El span #total-cesta se actualizará dinámicamente desde el componente. --&gt;
+
+&lt;button id&#x3D;&quot;vaciar-cesta&quot; (click)&#x3D;&quot;vaciar()&quot;&gt;Vaciar cesta&lt;/button&gt;
+&lt;!-- Botón para vaciar toda la cesta. Llama al método &#x27;vaciar()&#x27; del componente
+     correspondiente cuando se hace click. --&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./cesta.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.cesta-container { padding: 2rem; background-color: #f9f9f9; min-height: 80vh; }
+h2 { text-align: center; color: #333; margin-bottom: 2rem; }
+.item { display: flex; align-items: center; background: #fff; border-radius: 10px; margin-bottom: 1rem; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.item:hover { transform: translateY(-3px); }
+img { width: 100px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 1.5rem; }
+h3 { margin: 0; color: #222; }
+.precio { font-weight: bold; color: #e91e63; margin-bottom: 0.8rem; }
+button { background-color: #007bff; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+button:hover { background-color: #0056b3; }
+.vaciar { background-color: #dc3545; margin-top: 1rem; }
+.vaciar:hover { background-color: #a71d2a; }
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h2>Mi Cesta</h2><!-- Título de la sección de la cesta --><div id="vacia" style="display:none;">La cesta está vacía</div><!-- Mensaje que aparece solo cuando no hay productos en la cesta.     Por defecto está oculto con display:none. --><div id="lista-cesta"></div><!-- Contenedor donde se mostrarán dinámicamente los productos añadidos a la cesta. --><div class="total-cesta">  Total: <span id="total-cesta"></span> €</div><!-- Aquí se muestra el total acumulado de los productos de la cesta.     El span #total-cesta se actualizará dinámicamente desde el componente. --><button id="vaciar-cesta" (click)="vaciar()">Vaciar cesta</button><!-- Botón para vaciar toda la cesta. Llama al método \'vaciar()\' del componente     correspondiente cuando se hace click. --></div>'
+    var COMPONENTS = [{'name': 'Accesorios', 'selector': 'app-accesorios'},{'name': 'App', 'selector': 'app-root'},{'name': 'Cabecera', 'selector': 'app-cabecera'},{'name': 'Camisetas', 'selector': 'app-camisetas'},{'name': 'Cesta', 'selector': 'app-cesta'},{'name': 'Chaquetas', 'selector': 'app-chaquetas'},{'name': 'Home', 'selector': 'app-home'},{'name': 'Pantalones', 'selector': 'app-pantalones'},{'name': 'Pie', 'selector': 'app-pie'},{'name': 'SeccionUsuario', 'selector': 'app-seccion-usuario'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'Zapatos', 'selector': 'app-zapatos'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Cesta'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Cesta.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

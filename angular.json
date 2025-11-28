@@ -10,6 +10,17 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
+        "doc": {
+        "builder": "@compodoc/compodoc:compodoc",
+        "options": {
+        "tsconfig": "tsconfig.json",
+        "outputPath": "documentation",
+        "name": "Mi Proyecto Angular",
+        "theme": "material",
+        "coverageTest": 70,
+        "exportFormat": "html, json, pdf"
+        }
+        },
         "build": {
           "builder": "@angular/build:application",
           "options": {
@@ -88,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9df8521d-1088-4504-b684-a23d294f73a3"
   }
 }

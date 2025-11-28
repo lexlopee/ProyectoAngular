@@ -1,0 +1,59 @@
+/* Estilos para la navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+  align-items: center;
+  padding: 0 20px;
+  background-color: #004d40; /* Color de fondo, puedes cambiarlo */
+  height: 60px;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo del logo */
+.logo a {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Contenedor de los links en horizontal */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Espacio entre los enlaces */
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para cada enlace */
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para enlaces */
+.nav-links li a:hover {
+  background-color: #00796b;
+  color: #e0f2f1;
+}
+
+/* Estilo para el enlace activo */
+.nav-links li a.active {
+  background-color: #009688;
+  color: white;
+}
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* El contenido debe ocupar espacio para empujar el footer */
+.content {
+  flex: 1;
+}

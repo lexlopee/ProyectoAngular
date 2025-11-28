@@ -1,0 +1,12 @@
+.cesta-container { padding: 2rem; background-color: #f9f9f9; min-height: 80vh; }
+h2 { text-align: center; color: #333; margin-bottom: 2rem; }
+.item { display: flex; align-items: center; background: #fff; border-radius: 10px; margin-bottom: 1rem; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.item:hover { transform: translateY(-3px); }
+img { width: 100px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 1.5rem; }
+h3 { margin: 0; color: #222; }
+.precio { font-weight: bold; color: #e91e63; margin-bottom: 0.8rem; }
+button { background-color: #007bff; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+button:hover { background-color: #0056b3; }
+.vaciar { background-color: #dc3545; margin-top: 1rem; }
+.vaciar:hover { background-color: #a71d2a; }
+

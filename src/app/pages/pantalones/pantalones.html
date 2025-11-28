@@ -1,0 +1,73 @@
+<!-- Contenedor para mostrar mensajes dinámicos (ej. "producto añadido a la cesta") -->
+<div id="mensaje" class="mensaje"></div>
+
+<!-- Sección principal dedicada a los pantalones -->
+<section class="pantalones">
+  <!-- Título de la sección -->
+  <h2>Pantalones</h2>
+
+  <!-- Galería de productos en formato de tarjetas -->
+  <div class="galeria">
+
+    <!-- Tarjeta de producto: Pantalón Vaquero Baggy -->
+    <div class="tarjeta">
+      <!-- Imagen del producto -->
+      <img
+        src="https://bustinsjeans.com/cdn/shop/files/BI2A5910_1f0d00ca-839a-4c78-bafc-64e11009eaa1_800x.jpg?v=1736346832"
+        alt="Pantalon Vaquero Baggy"
+      />
+      <!-- Nombre del producto -->
+      <h3>Pantalon Vaquero Baggy</h3>
+      <!-- Precio del producto -->
+      <p class="precio">39.99€</p>
+      <!-- Botón que llama al método anadir() del componente Angular -->
+      <button
+        (click)="anadir(
+          'Pantalon Vaquero Baggy',
+          39.99,
+          'https://bustinsjeans.com/cdn/shop/files/BI2A5910_1f0d00ca-839a-4c78-bafc-64e11009eaa1_800x.jpg?v=1736346832'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+
+    <!-- Tarjeta de producto: Pantalón Negro Chandal -->
+    <div class="tarjeta">
+      <img
+        src="https://www.errea.com/media/catalog/product/R/2/R27P0L0Z.jpg?optimize=low&fit=bounds&height=&width=&canvas=:"
+        alt="Pantalon Negro Chandal"
+      />
+      <h3>Pantalon Negro Chandal</h3>
+      <p class="precio">32.50€</p>
+      <button
+        (click)="anadir(
+          'Pantalon Negro Chandal',
+          32.50,
+          'https://www.errea.com/media/catalog/product/R/2/R27P0L0Z.jpg?optimize=low&fit=bounds&height=&width=&canvas=:'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+
+    <!-- Tarjeta de producto: Pantalón corto vaquero -->
+    <div class="tarjeta">
+      <img
+        src="https://img.joomcdn.net/7ca3901904a6a8bfd5cdba28899b5de11ce8fd9c_original.jpeg"
+        alt="Pantalon corto vaquero"
+      />
+      <h3>Pantalon corto vaquero</h3>
+      <p class="precio">27.49€</p>
+      <button
+        (click)="anadir(
+          'Pantalon corto vaquero',
+          27.49,
+          'https://img.joomcdn.net/7ca3901904a6a8bfd5cdba28899b5de11ce8fd9c_original.jpeg'
+        )"
+      >
+        Añadir al carrito
+      </button>
+    </div>
+  </div>
+</section>
