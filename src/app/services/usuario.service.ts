@@ -144,7 +144,7 @@ export class UsuarioService {
   verificarFortalezaPassword(password: string): { esSegura: boolean; errores: string[] } {
     const errores: string[] = [];
 
-    if (password.length < 8) errores.push('Mínimo 8 caracteres');
+    if (password.length < 6) errores.push('Mínimo 6 caracteres');
     if (!/[A-Z]/.test(password)) errores.push('Al menos una mayúscula');
     if (!/[a-z]/.test(password)) errores.push('Al menos una minúscula');
     if (!/[0-9]/.test(password)) errores.push('Al menos un número');

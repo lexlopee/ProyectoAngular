@@ -3,6 +3,7 @@ import { RouterModule, Router } from '@angular/router';
 import { CestaService } from '../services/cesta.service';
 import { CommonModule } from '@angular/common';
 import { UsuarioService } from '../services/usuario.service';
+import { BuscadorComponent } from '../pages/buscador/buscador';
 
 /**
  * Componente de cabecera de la aplicación.
@@ -17,7 +18,7 @@ import { UsuarioService } from '../services/usuario.service';
 @Component({
   selector: 'app-cabecera',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, BuscadorComponent],
   templateUrl: './cabecera.html',
   styleUrls: ['./cabecera.css'],
 })
@@ -94,4 +95,6 @@ export class Cabecera implements AfterViewInit {
     alert('Has cerrado sesión correctamente ✅');
     window.location.href = '/';
   }
+
 }
+

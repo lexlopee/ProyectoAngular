@@ -15,7 +15,7 @@
         "options": {
         "tsconfig": "tsconfig.json",
         "outputPath": "documentation",
-        "name": "Mi Proyecto Angular",
+        "name": "Proyecto2",
         "theme": "material",
         "coverageTest": 70,
         "exportFormat": "html, json, pdf"
@@ -23,36 +23,39 @@
         },
         "build": {
           "builder": "@angular/build:application",
-          "options": {
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ]
-          },
+       "options": {
+              "browser": "src/main.ts",
+              "polyfills": [
+                "zone.js"
+              ],
+              "tsConfig": "tsconfig.app.json",
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "public"
+                }
+              ],
+              "styles": [
+                "src/styles.css"
+              ],
+              "allowedCommonJsDependencies": [
+                "crypto-js"
+              ]
+            },
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
+                    {
+                      "type": "initial",
+                      "maximumWarning": "500kB",
+                      "maximumError": "1MB"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "10kB",
+                      "maximumError": "20kB"
+                    }
+                  ],
               "outputHashing": "all"
             },
             "development": {

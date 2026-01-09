@@ -794,17 +794,62 @@ export class Cesta implements AfterViewInit {
                 <p class="comment">
                     <code>./cesta.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.cesta-container { padding: 2rem; background-color: #f9f9f9; min-height: 80vh; }
-h2 { text-align: center; color: #333; margin-bottom: 2rem; }
-.item { display: flex; align-items: center; background: #fff; border-radius: 10px; margin-bottom: 1rem; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-.item:hover { transform: translateY(-3px); }
-img { width: 100px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 1.5rem; }
-h3 { margin: 0; color: #222; }
-.precio { font-weight: bold; color: #e91e63; margin-bottom: 0.8rem; }
-button { background-color: #007bff; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
-button:hover { background-color: #0056b3; }
-.vaciar { background-color: #dc3545; margin-top: 1rem; }
-.vaciar:hover { background-color: #a71d2a; }
+                <pre class="line-numbers"><code class="language-scss">.cesta-container {
+   padding: 2rem;
+   background-color:
+    #f9f9f9;
+    min-height: 80vh;
+  }
+h2 {
+  text-align: center;
+  color: #333;
+   margin-bottom: 2rem;
+}
+.item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+ }
+.item:hover {
+  transform: translateY(-3px);
+ }
+img {
+   width: 100px;
+   height: 120px;
+   object-fit: cover;
+   border-radius: 8px;
+   margin-right: 1.5rem;
+ }
+h3 { margin: 0;
+  color: #222;
+}
+.precio {
+  font-weight: bold;
+  color: #e91e63;
+  margin-bottom: 0.8rem;
+ }
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+ }
+button:hover {
+   background-color: #0056b3;
+ }
+.vaciar {
+  background-color: #dc3545;
+  margin-top: 1rem;
+ }
+.vaciar:hover {
+   background-color: #a71d2a;
+   }
 
 </code></pre>
     </div>
@@ -835,7 +880,7 @@ button:hover { background-color: #0056b3; }
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><h2>Mi Cesta</h2><!-- Título de la sección de la cesta --><div id="vacia" style="display:none;">La cesta está vacía</div><!-- Mensaje que aparece solo cuando no hay productos en la cesta.     Por defecto está oculto con display:none. --><div id="lista-cesta"></div><!-- Contenedor donde se mostrarán dinámicamente los productos añadidos a la cesta. --><div class="total-cesta">  Total: <span id="total-cesta"></span> €</div><!-- Aquí se muestra el total acumulado de los productos de la cesta.     El span #total-cesta se actualizará dinámicamente desde el componente. --><button id="vaciar-cesta" (click)="vaciar()">Vaciar cesta</button><!-- Botón para vaciar toda la cesta. Llama al método \'vaciar()\' del componente     correspondiente cuando se hace click. --></div>'
-    var COMPONENTS = [{'name': 'Accesorios', 'selector': 'app-accesorios'},{'name': 'App', 'selector': 'app-root'},{'name': 'Cabecera', 'selector': 'app-cabecera'},{'name': 'Camisetas', 'selector': 'app-camisetas'},{'name': 'Cesta', 'selector': 'app-cesta'},{'name': 'Chaquetas', 'selector': 'app-chaquetas'},{'name': 'Home', 'selector': 'app-home'},{'name': 'Pantalones', 'selector': 'app-pantalones'},{'name': 'Pie', 'selector': 'app-pie'},{'name': 'SeccionUsuario', 'selector': 'app-seccion-usuario'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'Zapatos', 'selector': 'app-zapatos'}];
+    var COMPONENTS = [{'name': 'Accesorios', 'selector': 'app-accesorios'},{'name': 'App', 'selector': 'app-root'},{'name': 'Cabecera', 'selector': 'app-cabecera'},{'name': 'Camisetas', 'selector': 'app-camisetas'},{'name': 'Cesta', 'selector': 'app-cesta'},{'name': 'Chaquetas', 'selector': 'app-chaquetas'},{'name': 'Home', 'selector': 'app-home'},{'name': 'Pantalones', 'selector': 'app-pantalones'},{'name': 'Pie', 'selector': 'app-pie'},{'name': 'SeccionUsuario', 'selector': 'app-seccion-usuario'},{'name': 'Zapatos', 'selector': 'app-zapatos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'Cesta'};
 </script>

@@ -8,6 +8,8 @@ import { Accesorios } from './pages/accesorios/accesorios';
 import { Chaquetas } from './pages/chaquetas/chaquetas';
 import { Cesta } from './pages/cesta/cesta';
 import { SeccionUsuario } from '../app/seccion-usuario/seccion-usuario';
+import { BuscadorComponent } from './pages/buscador/buscador';
+
 
 /**
  * Definición de rutas principales de la aplicación.
@@ -44,5 +46,14 @@ export const routes: Routes = [
   { path: 'cesta', component: Cesta },
 
   /** Ruta para la sección de usuario (login/registro) */
-  { path: 'seccion-usuario', component: SeccionUsuario }
+  { path: 'seccion-usuario', component: SeccionUsuario },
+
+  { path: 'buscador', component: BuscadorComponent},
+
+{ path: 'pantalones/:id', component: Pantalones },
+{ path: 'camisetas/:id', component: Camisetas },
+{ path: 'zapatos/:id', component: Zapatos },
+{ path: 'accesorios/:id', component: Accesorios}
+
+
 ];

@@ -2,6 +2,8 @@ import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CestaService } from '../../services/cesta.service';
+import { Producto } from '../../models/producto';
+
 
 /**
  * Componente de la página de pantalones.
@@ -44,10 +46,19 @@ export class Pantalones {
    * @param imagen URL o ruta de la imagen del producto.
    */
   anadir(nombre: string, precio: number, imagen: string): void {
-    const producto = { id: Date.now(), nombre, precio, imagen };
-    this.cestaService.addProducto(producto);
-    this.mostrarMensaje(`${nombre} añadido a la cesta 🛒`);
-  }
+  const producto: Producto = {
+    id: Date.now(),
+    nombre,
+    precio,
+    imagen,
+    categoria: 'camisetas',
+    ruta: '/camisetas'
+  };
+
+  this.cestaService.addProducto(producto);
+  this.mostrarMensaje(`${nombre} añadido a la cesta 🛒`);
+}
+
 
   /**
    * Muestra un mensaje temporal en pantalla.

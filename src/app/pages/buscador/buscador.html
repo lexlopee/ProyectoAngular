@@ -1,0 +1,12 @@
+<div class="buscador-container">
+  <input type="text" placeholder="Buscar producto..."
+         [value]="busqueda" (input)="onBuscar($event)" />
+
+  <div class="resultados-busqueda" *ngIf="resultados.length > 0">
+    <div *ngFor="let producto of resultados" class="producto-mini"
+         (click)="irAProducto(producto)">
+      <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
+      <div>{{ producto.nombre }}</div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { CestaService } from '../../services/cesta.service';
+import { Producto } from '../../models/producto';
+
 
 /**
  * Componente de la página de chaquetas.
@@ -39,11 +41,20 @@ export class Chaquetas {
    * @param precio Precio del producto.
    * @param imagen URL o ruta de la imagen del producto.
    */
-  anadir(nombre: string, precio: number, imagen: string): void {
-    const producto = { id: Date.now(), nombre, precio, imagen };
-    this.cestaService.addProducto(producto);
-    this.mostrarMensaje(`${nombre} añadido a la cesta 🛒`);
-  }
+ anadir(nombre: string, precio: number, imagen: string): void {
+  const producto: Producto = {
+    id: Date.now(),
+    nombre,
+    precio,
+    imagen,
+    categoria: 'chaquetas',
+    ruta: '/chaquetas'
+  };
+
+  this.cestaService.addProducto(producto);
+  this.mostrarMensaje(`${nombre} añadido a la cesta 🛒`);
+}
+
 
   /**
    * Muestra un mensaje temporal en pantalla.
