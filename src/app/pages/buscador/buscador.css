@@ -1,20 +1,22 @@
 .buscador-container {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: inline-block; /* 🔥 hace que el ancho sea el del input */
+  width: 100%; /* o el ancho que tú quieras */
 }
+
 
 .resultados-busqueda {
   position: absolute;
   top: 100%;
   left: 0;
-  width: 300px;
+  width: 100%; /* 🔥 se ajusta al ancho del input */
   background: rgb(34, 53, 223);
   border: 1px solid #4deeee;
   max-height: 300px;
   overflow-y: auto;
   z-index: 1000;
 }
+
 
 .producto-mini {
   display: flex;
@@ -32,4 +34,17 @@
 
 .producto-mini:hover {
   background-color: #4deeee;
+}
+.producto-mini div {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white; /* opcional para contraste con fondo azul */
+}
+.buscador-container input {
+  width: 300px; /* o 500px, el tamaño que quieras */
+  padding: 8px;
+  font-size: 16px;
 }
