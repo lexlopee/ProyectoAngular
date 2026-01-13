@@ -1,7 +1,7 @@
 .buscador-container {
   position: relative;
-  display: inline-block; /* 🔥 hace que el ancho sea el del input */
-  width: 100%; /* o el ancho que tú quieras */
+  display: inline-block;
+  width: 100%;
 }
 
 
@@ -9,7 +9,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%; /* 🔥 se ajusta al ancho del input */
+  width: 100%;
   background: rgb(34, 53, 223);
   border: 1px solid #4deeee;
   max-height: 300px;
@@ -41,10 +41,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: white; /* opcional para contraste con fondo azul */
+  color: white;
 }
 .buscador-container input {
-  width: 300px; /* o 500px, el tamaño que quieras */
+  width: 300px;
   padding: 8px;
   font-size: 16px;
 }
