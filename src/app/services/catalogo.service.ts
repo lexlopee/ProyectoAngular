@@ -126,6 +126,104 @@ export class CatalogoService {
       categoria: 'accesorios',
       ruta: 'accesorios'
     },
+    {
+      id: 16,
+      nombre: 'Pulsera Cuero',
+      precio: 5.99,
+      imagen: 'https://static.zara.net/assets/public/f412/b1fc/d8d14f3ebe38/f53e8e48b72f/05717400800-e1/05717400800-e1.jpg?ts=1747994425924&w=352',
+      categoria: 'accesorios',
+      ruta: 'accesorios'
+    },
+    {
+      id: 17,
+      nombre: 'Camisteta Dior Amarilla',
+      precio: 50.00,
+      imagen: 'https://diorama.dam-broadcast.com/cdn-cgi/image/width=3000,format=auto/pm_11872_1238_1238598-dtr6cax6vj-whr.jpg',
+      categoria: 'camisetas',
+      ruta: 'camisetas'
+    },
+    {
+      id: 18,
+      nombre: 'Abrigo Pelo Largo',
+      precio: 79.99,
+      imagen: 'https://www.bolf.es/hpeciai/d7cdd685aebdd46e3fcfc158d18a6b9e/spa_pl_Abrigo-forrado-largo-de-invierno-para-mujer-camel-Bolf-AN105-87340_16.jpg',
+      categoria: 'chaquetas',
+      ruta: 'chaquetas'
+    },
+    {
+      id: 19,
+      nombre: 'Zapatillas Adidas Campus',
+      precio: 110.99,
+      imagen: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSdbH_VF8sehHsThCYWq7VgbxrTKg6je5ylBwghj1CplBWseNc4TfTVHirmO4PSsp4He6A-dREw9knzT-xETAbNjlCmXxiEcwjvOWM579cuDSdn2-oo2nl0MnI_7SqQ3A37kLAu88t5nfc&usqp=CAc',
+      categoria: 'zapatos',
+      ruta: 'zapatos'
+    },
+    {
+      id: 20,
+      nombre: 'Camiseta Navideña',
+      precio: 22.99,
+      imagen: 'https://jerseynavideno.com/cdn/shop/products/Camiseta-Navidena-Merry-Christmas-Pinguino.jpg?crop=region&crop_height=1000&crop_left=100&crop_top=0&crop_width=800&v=1725447491&width=1000',
+      categoria: 'camisetas',
+      ruta: 'camisetas'
+    },
+    {
+      id: 21,
+      nombre: 'Camiseta Torreznos',
+      precio: 30.00,
+      imagen: 'https://cdn-ileglgb.nitrocdn.com/DyoxkJBdoPZveiwtEbqoEJPbXrLxuiVh/assets/images/optimized/rev-e37012b/ganafote.com/wp-content/uploads/2025/12/area112.png',
+      categoria: 'camisetas',
+      ruta: 'camisetas'
+    },
+    {
+      id: 22,
+      nombre: 'Chaqueta Azul Elegante',
+      precio: 85.00,
+      imagen: 'https://delaespriellastyle.com/media/catalog/product/cache/7a3ea6ca3d1f7e49ca627023822d1a6b/f/a/fa070010-1_1.jpg',
+      categoria: 'chaquetas',
+      ruta: 'chaquetas'
+    },
+    {
+      id: 23,
+      nombre: 'Chaqueta Invierno',
+      precio: 40.00,
+      imagen: 'https://pix.bonprix.es/imgc/0/0/2/5/1/2/1/2/4/5/_235/25121245/chaqueta-de-invierno-con-capucha-y-detalles-de-piel-sintetica.jpg',
+      categoria: 'chaquetas',
+      ruta: 'chaquetas'
+    },
+    {
+      id: 24,
+      nombre: 'Sandalias Azules Adidas',
+      precio: 40.00,
+      imagen: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQpdeqX85mxi_-25R1MKt8aYLunTtOlRxmOJdwglLsmFLK6dUZXd1B_1equNvj_kqLnCuxUO5PQIdlMHm-MharxxW-m2pJTh0u1HfPPKTP4hBgXiiUg4QohNHarXMFuMQXkHM4KIH_i77s&usqp=CAc',
+      categoria: 'zapatos',
+      ruta: 'zapatos'
+    },
+    {
+      id: 25,
+      nombre: 'Botas Cuero Negras',
+      precio: 54.00,
+      imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcRuF1YoyyJbCmf2kN-QzwPgibQwZeyii93A&s',
+      categoria: 'zapatos',
+      ruta: 'zapatos'
+    },
+    {
+      id: 26,
+      nombre: 'Pendientes de Novia',
+      precio: 25.99,
+      imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT33wr3h_Wo3Yk8LeJAtM2pUrCVKgwyo-e79g&s',
+      categoria: 'accesorios',
+      ruta: 'accesorios'
+    },
+    {
+      id: 27,
+      nombre: 'Sombrero Azul',
+      precio: 17.99,
+      imagen: 'https://www.tuskamisetas.com/resources/images/046_69_250_m-2025_02.jpg',
+      categoria: 'accesorios',
+      ruta: 'accesorios'
+    },
+
+
   ];
 
   getProductos(): Producto[] {

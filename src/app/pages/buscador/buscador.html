@@ -1,12 +1,50 @@
 <div class="buscador-container">
-  <input type="text" placeholder="Buscar producto..."
-         [value]="busqueda" (input)="onBuscar($event)" />
 
-  <div class="resultados-busqueda" *ngIf="resultados.length > 0">
-    <div *ngFor="let producto of resultados" class="producto-mini"
-         (click)="irAProducto(producto)">
-      <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
-      <div>{{ producto.nombre }}</div>
+  <!-- LABEL ACCESIBLE -->
+  <label for="buscador" class="visually-hidden">Buscar productos</label>
+
+  <!-- INPUT ACCESIBLE -->
+  <input
+    id="buscador"
+    type="text"
+    placeholder="Buscar producto..."
+    [value]="busqueda"
+    (input)="onBuscar($event)"
+    role="searchbox"
+    aria-label="Buscar productos"
+    aria-controls="resultados-busqueda"
+    aria-expanded="{{ resultados.length > 0 }}"
+  />
+
+  <!-- REGIÓN DINÁMICA PARA LECTORES DE PANTALLA -->
+  <div aria-live="polite" class="visually-hidden">
+    {{ resultados.length }} resultados encontrados
+  </div>
+
+  <!-- LISTA DE RESULTADOS ACCESIBLE -->
+  <div
+    id="resultados-busqueda"
+    class="resultados-busqueda"
+    *ngIf="resultados.length > 0"
+    role="listbox"
+  >
+    <div
+      *ngFor="let producto of resultados; let i = index"
+      class="producto-mini"
+      (click)="irAProducto(producto)"
+      role="option"
+      tabindex="0"
+      aria-selected="false"
+      (keydown)="onKeyDown($event, producto)"
+    >
+      <img
+        [src]="producto.imagen"
+        [alt]="producto.nombre"
+      />
+
+      <div class="producto-nombre">
+        {{ producto.nombre }}
+      </div>
     </div>
   </div>
 </div>
