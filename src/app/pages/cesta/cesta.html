@@ -1,19 +1,31 @@
-<h2>Mi Cesta</h2>
-<!-- Título de la sección de la cesta -->
+<main class="cesta-container" role="main">
 
-<div id="vacia" style="display:none;">La cesta está vacía</div>
-<!-- Mensaje que aparece solo cuando no hay productos en la cesta.
-     Por defecto está oculto con display:none. -->
+  <h1>Mi Cesta</h1>
 
-<div id="lista-cesta"></div>
-<!-- Contenedor donde se mostrarán dinámicamente los productos añadidos a la cesta. -->
+  <!-- Mensaje accesible cuando está vacía -->
+  <p id="vacia" aria-live="polite" style="display:none;">
+    La cesta está vacía
+  </p>
 
-<div class="total-cesta">
-  Total: <span id="total-cesta"></span> €
-</div>
-<!-- Aquí se muestra el total acumulado de los productos de la cesta.
-     El span #total-cesta se actualizará dinámicamente desde el componente. -->
+  <!-- Lista accesible de productos -->
+  <div 
+    id="lista-cesta" 
+    role="list" 
+    aria-label="Productos en la cesta">
+  </div>
 
-<button id="vaciar-cesta" (click)="vaciar()">Vaciar cesta</button>
-<!-- Botón para vaciar toda la cesta. Llama al método 'vaciar()' del componente
-     correspondiente cuando se hace click. -->
+  <!-- Total accesible -->
+  <div class="total-cesta">
+    Total: 
+    <span id="total-cesta" aria-live="polite">0.00</span> €
+  </div>
+
+  <!-- Botón accesible para vaciar -->
+  <button 
+    id="vaciar-cesta" 
+    class="vaciar"
+    aria-label="Vaciar todos los productos de la cesta">
+    Vaciar cesta
+  </button>
+
+</main>

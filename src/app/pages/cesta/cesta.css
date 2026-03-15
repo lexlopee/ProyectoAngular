@@ -43,6 +43,8 @@ button {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
  }
 button:hover {
    background-color: #0056b3;
@@ -54,4 +56,6 @@ button:hover {
 .vaciar:hover {
    background-color: #a71d2a;
    }
+
+
 

@@ -52,23 +52,30 @@ export class Cabecera implements AfterViewInit {
    * - Inicializa datos de usuario y cesta.
    * - Escucha eventos globales para actualizar la cabecera.
    */
-  ngAfterViewInit(): void {
-    this.actualizarUsuarioYCesta();
+ ngAfterViewInit(): void {
+  const toggle = document.querySelector('.menu-toggle') as HTMLElement;
+  const menu = document.querySelector('.nav-links') as HTMLElement;
 
-    window.addEventListener('actualizarCestaCabecera', (event: any) => {
-      this.cantidadCesta = event.detail;
-    });
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
 
-    window.addEventListener('usuarioIniciado', (event: any) => {
-      this.usuario = event.detail.nombre;
-      this.cantidadCesta = this.cestaService.getProductos().length;
-    });
+    toggle.setAttribute('aria-expanded', (!expanded).toString());
+    toggle.setAttribute('aria-pressed', (!expanded).toString());
 
-    window.addEventListener('usuarioCerrado', () => {
-      this.usuario = null;
-      this.cantidadCesta = 0;
-    });
-  }
+    menu.classList.toggle('show');
+
+    // Bloquear scroll en móvil
+    if (!expanded) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  });
+
+  this.actualizarUsuarioYCesta();
+}
+
+
 
   /**
    * Obtiene el usuario actual y la cantidad de productos en la cesta al iniciar.

@@ -1,27 +1,29 @@
-<!-- Contenedor para mostrar mensajes dinámicos (ej. "producto añadido a la cesta") -->
-<div id="mensaje" class="mensaje"></div>
+<!-- Mensaje flotante accesible -->
+<div id="mensaje" class="mensaje" aria-live="assertive"></div>
 
-<!-- Sección principal dedicada a los zapatos -->
-<section class="zapatos">
-  <!-- Título de la sección -->
-  <h2>Zapatos</h2>
+<main class="zapatos" role="main">
 
-  <!-- Galería de productos en formato de tarjetas -->
-  <div class="galeria">
+  <h1>Zapatos</h1>
 
-    <!-- Tarjeta de producto: Zapatillas Deportivas Negras -->
-    <div class="tarjeta">
-      <!-- Imagen del producto -->
+  <div class="galeria" role="list">
+
+    <!-- 1. Zapatillas Deportivas Negras -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Zapatillas Deportivas Negras, precio 140 euros"
+    >
       <img
         src="https://img.joomcdn.net/1a3b535c210b6b96c09493591c422dc11d9bbec4_original.jpeg"
         alt="Zapatillas Deportivas Negras"
       />
-      <!-- Nombre del producto -->
       <h3>Zapatillas Deportivas Negras</h3>
-      <!-- Precio del producto -->
       <p class="precio">140€</p>
-      <!-- Botón que llama al método anadir() del componente Angular -->
+
       <button
+        aria-label="Añadir Zapatillas Deportivas Negras al carrito"
         (click)="anadir(
           'Zapatillas Deportivas Negras',
           140,
@@ -32,15 +34,23 @@
       </button>
     </div>
 
-    <!-- Tarjeta de producto: Zapatillas con Tacón Azules -->
-    <div class="tarjeta">
+    <!-- 2. Zapatillas con Tacón Azules -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Zapatillas con tacón azules, precio 69 euros"
+    >
       <img
         src="https://luisatoledo.es/2469/zapatos-azules-tacon-ancho-eva.jpg"
-        alt="Zapatillas con Tacon Azules"
+        alt="Zapatillas con tacón azules"
       />
-      <h3>Zapatillas con Tacon Azules</h3>
+      <h3>Zapatillas con Tacón Azules</h3>
       <p class="precio">69€</p>
+
       <button
+        aria-label="Añadir Zapatillas con Tacón Azules al carrito"
         (click)="anadir(
           'Zapatillas con Tacon Azules',
           69,
@@ -51,15 +61,23 @@
       </button>
     </div>
 
-    <!-- Tarjeta de producto: Crocs Negras -->
-    <div class="tarjeta">
+    <!-- 3. Crocs Negras -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Crocs negras, precio 110 euros"
+    >
       <img
         src="https://i5.walmartimages.com/asr/d15b955f-63ec-4cdc-aaa4-37b28807b81f.6856aa51ea991e5595d5396efb074517.jpeg"
-        alt="Crocs Negras"
+        alt="Crocs negras"
       />
       <h3>Crocs Negras</h3>
       <p class="precio">110€</p>
+
       <button
+        aria-label="Añadir Crocs Negras al carrito"
         (click)="anadir(
           'Crocs Negras',
           110,
@@ -69,14 +87,24 @@
         Añadir al carrito
       </button>
     </div>
-       <div class="tarjeta">
+
+    <!-- 4. Zapatillas Adidas Campus -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Zapatillas Adidas Campus, precio 110.99 euros"
+    >
       <img
         src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSdbH_VF8sehHsThCYWq7VgbxrTKg6je5ylBwghj1CplBWseNc4TfTVHirmO4PSsp4He6A-dREw9knzT-xETAbNjlCmXxiEcwjvOWM579cuDSdn2-oo2nl0MnI_7SqQ3A37kLAu88t5nfc&usqp=CAc"
         alt="Zapatillas Adidas Campus"
       />
       <h3>Zapatillas Adidas Campus</h3>
       <p class="precio">110.99€</p>
+
       <button
+        aria-label="Añadir Zapatillas Adidas Campus al carrito"
         (click)="anadir(
           'Zapatillas Adidas Campus',
           110.99,
@@ -87,37 +115,59 @@
       </button>
     </div>
 
-      <div class="tarjeta">
+    <!-- 5. Sandalias Azules Adidas -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Sandalias azules Adidas, precio 25.99 euros"
+    >
       <img
         src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQpdeqX85mxi_-25R1MKt8aYLunTtOlRxmOJdwglLsmFLK6dUZXd1B_1equNvj_kqLnCuxUO5PQIdlMHm-MharxxW-m2pJTh0u1HfPPKTP4hBgXiiUg4QohNHarXMFuMQXkHM4KIH_i77s&usqp=CAc"
-        alt="Sandalias Azules Adidas"/>
+        alt="Sandalias azules Adidas"
+      />
       <h3>Sandalias Azules Adidas</h3>
       <p class="precio">25.99€</p>
+
       <button
+        aria-label="Añadir Sandalias Azules Adidas al carrito"
         (click)="anadir(
-          'Sandalias Azules Adidas ',
+          'Sandalias Azules Adidas',
           25.99,
           'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQpdeqX85mxi_-25R1MKt8aYLunTtOlRxmOJdwglLsmFLK6dUZXd1B_1equNvj_kqLnCuxUO5PQIdlMHm-MharxxW-m2pJTh0u1HfPPKTP4hBgXiiUg4QohNHarXMFuMQXkHM4KIH_i77s&usqp=CAc'
-        )">
+        )"
+      >
         Añadir al carrito
       </button>
     </div>
 
-
-    <div class="tarjeta">
+    <!-- 6. Botas Cuero Negro -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Botas de cuero negras, precio 54 euros"
+    >
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcRuF1YoyyJbCmf2kN-QzwPgibQwZeyii93A&s"
-        alt="Botas Cuero Negras"/>
+        alt="Botas de cuero negras"
+      />
       <h3>Botas Cuero Negro</h3>
       <p class="precio">54.00€</p>
+
       <button
+        aria-label="Añadir Botas Cuero Negro al carrito"
         (click)="anadir(
           'Botas Cuero Negras',
           54.00,
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcRuF1YoyyJbCmf2kN-QzwPgibQwZeyii93A&s'
-        )">
+        )"
+      >
         Añadir al carrito
       </button>
     </div>
+
   </div>
-</section>
+</main>

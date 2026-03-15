@@ -10,16 +10,30 @@ export class BuscadorService {
   constructor(private catalogoService: CatalogoService) {}
 
   /**
+   * Normaliza texto para búsqueda:
+   * - minúsculas
+   * - sin espacios
+   * - sin acentos
+   */
+  private normalizar(texto: string): string {
+    return texto
+      .toLowerCase()
+      .trim()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, ""); // elimina acentos
+  }
+
+  /**
    * Busca productos en el catálogo por nombre.
-   * @param termino Texto introducido por el usuario.
-   * @returns Lista de productos que coinciden con el término.
    */
   buscarProductos(termino: string): Producto[] {
-    const productos = this.catalogoService.getProductos();
-    const texto = termino.toLowerCase().trim();
+    const productos = this.catalogoService.getProductos() || [];
+    const texto = this.normalizar(termino);
 
-    return productos.filter(p =>
-      p.nombre.toLowerCase().includes(texto)
-    );
+    if (!texto) return [];
+
+    return productos
+      .filter(p => this.normalizar(p.nombre).includes(texto))
+      .sort((a, b) => a.nombre.localeCompare(b.nombre));
   }
 }

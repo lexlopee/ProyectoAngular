@@ -51,8 +51,8 @@ export class Pantalones {
     nombre,
     precio,
     imagen,
-    categoria: 'camisetas',
-    ruta: '/camisetas'
+    categoria: 'pantalones',
+    ruta: '/pantalones'
   };
 
   this.cestaService.addProducto(producto);

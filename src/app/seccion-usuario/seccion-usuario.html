@@ -1,123 +1,170 @@
-<!-- Contenedor principal del login -->
-<div class="login-container">
-  <!-- Tarjeta que agrupa las pestañas y formularios -->
+<main class="login-container" role="main">
+
   <div class="login-card">
 
-    <!-- Pestañas para alternar entre Login y Registro -->
-    <div class="tabs">
-      <!-- Botón activo por defecto: Login -->
-      <button class="tab-button active" data-tab="login">Iniciar Sesión</button>
-      <!-- Botón para cambiar a Registro -->
-      <button class="tab-button" data-tab="register">Registrarse</button>
+    <!-- Pestañas accesibles -->
+    <div class="tabs" role="tablist">
+
+      <button 
+        class="tab-button active" 
+        role="tab"
+        aria-selected="true"
+        aria-controls="loginForm"
+        id="tab-login"
+        data-tab="login">
+        Iniciar Sesión
+      </button>
+
+      <button 
+        class="tab-button" 
+        role="tab"
+        aria-selected="false"
+        aria-controls="registerForm"
+        id="tab-register"
+        data-tab="register">
+        Registrarse
+      </button>
+
     </div>
 
-    <!-- Formulario de Login -->
-    <form class="login-form active" id="loginForm">
+    <!-- FORMULARIO LOGIN -->
+    <form 
+      class="login-form active" 
+      id="loginForm"
+      role="tabpanel"
+      aria-labelledby="tab-login">
+
       <h3>Bienvenido de nuevo</h3>
 
-      <!-- Campo de usuario/email -->
       <div class="form-group">
         <label for="loginUsuario">Usuario o Email</label>
         <input
           type="text"
           id="loginUsuario"
+          class="form-input"
           placeholder="Ingresa tu usuario o email"
-          class="form-input">
+          autocomplete="username"
+        >
       </div>
 
-      <!-- Campo de contraseña -->
       <div class="form-group">
         <label for="loginClave">Contraseña</label>
         <input
           type="password"
           id="loginClave"
+          class="form-input"
           placeholder="Ingresa tu contraseña"
-          class="form-input">
+          autocomplete="current-password"
+        >
       </div>
 
-      <!-- Opciones adicionales: recordar sesión y enlace de recuperación -->
       <div class="form-options">
-        <label class="checkbox-label">
-          <input type="checkbox"> Recordar sesión
+
+        <label class="checkbox-label" for="recordarLogin">
+          <input type="checkbox" id="recordarLogin">
+          Recordar sesión
         </label>
-        <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+
+        <a routerLink="/recuperar" class="forgot-link">
+          ¿Olvidaste tu contraseña?
+        </a>
+
       </div>
 
-      <!-- Botón de envío del formulario de login -->
-      <button type="submit" class="btn btn-primary btn-full">Ingresar</button>
+      <button type="submit" class="btn btn-primary btn-full">
+        Ingresar
+      </button>
+
     </form>
 
-    <!-- Formulario de Registro -->
-    <form class="login-form" id="registerForm">
+    <!-- FORMULARIO REGISTRO -->
+    <form 
+      class="login-form" 
+      id="registerForm"
+      role="tabpanel"
+      aria-labelledby="tab-register">
+
       <h3>Crear nueva cuenta</h3>
 
-      <!-- Fila con nombre y apellido -->
       <div class="form-row">
         <div class="form-group">
           <label for="regNombre">Nombre</label>
           <input
             type="text"
             id="regNombre"
+            class="form-input"
             placeholder="Tu nombre"
-            class="form-input">
+            autocomplete="given-name"
+          >
         </div>
+
         <div class="form-group">
           <label for="regApellido">Apellido</label>
           <input
             type="text"
             id="regApellido"
+            class="form-input"
             placeholder="Tu apellido"
-            class="form-input">
+            autocomplete="family-name"
+          >
         </div>
       </div>
 
-      <!-- Campo de email -->
       <div class="form-group">
         <label for="regEmail">Email</label>
         <input
           type="email"
           id="regEmail"
+          class="form-input"
           placeholder="tu@email.com"
-          class="form-input">
+          autocomplete="email"
+        >
       </div>
 
-      <!-- Campo de usuario -->
       <div class="form-group">
         <label for="regUsuario">Usuario</label>
         <input
           type="text"
           id="regUsuario"
+          class="form-input"
           placeholder="Elige un nombre de usuario"
-          class="form-input">
+          autocomplete="username"
+        >
       </div>
 
-      <!-- Campo de contraseña -->
       <div class="form-group">
         <label for="regClave">Contraseña</label>
         <input
           type="password"
           id="regClave"
+          class="form-input"
           placeholder="Crea una contraseña segura"
-          class="form-input">
+          autocomplete="new-password"
+        >
       </div>
 
-      <!-- Campo de confirmación de contraseña -->
       <div class="form-group">
         <label for="regConfirmarClave">Confirmar Contraseña</label>
         <input
           type="password"
           id="regConfirmarClave"
+          class="form-input"
           placeholder="Repite tu contraseña"
-          class="form-input">
+          autocomplete="new-password"
+        >
       </div>
 
-      <!-- Checkbox de aceptación de términos -->
-      <label class="checkbox-label">
-        <input type="checkbox"> Acepto los términos y condiciones
+      <label class="checkbox-label" for="aceptarTerminos">
+        <input type="checkbox" id="aceptarTerminos">
+        Acepto los términos y condiciones
       </label>
 
-      <!-- Botón de envío del formulario de registro -->
-      <button type="submit" class="btn btn-primary btn-full">Crear Cuenta</button>
+      <button type="submit" class="btn btn-primary btn-full">
+        Crear Cuenta
+      </button>
+
     </form>
+
   </div>
-</div>
+
+</main>

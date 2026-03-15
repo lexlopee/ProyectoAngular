@@ -67,3 +67,7 @@
   color: white;
   font-size: 15px;
 }
+/* Para que el input sea accesible en móvil */
+.buscador-container input {
+  min-height: 44px;
+}

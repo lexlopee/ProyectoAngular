@@ -34,6 +34,8 @@
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .btn-hero:hover {
@@ -99,3 +101,8 @@
 .value-card p {
   color: #555;
 }
+.value-card:focus {
+  outline: 3px solid #3949ab;
+  outline-offset: 4px;
+}
+

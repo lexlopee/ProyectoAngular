@@ -1,37 +1,43 @@
-<!-- Pie de página principal -->
-<footer class="footer">
-  <!-- Contenedor general del footer -->
+<footer class="footer" role="contentinfo">
+
   <div class="footer-container">
 
-    <!-- Sección de redes sociales -->
-    <div class="footer-section">
-      <h3>Redes Sociales</h3>
-      <ul class="social-links">
-        <!-- Enlaces a distintas redes sociales -->
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Instagram</a></li>
-      </ul>
-    </div>
+    <!-- Redes Sociales -->
+    <section class="footer-section" aria-labelledby="titulo-redes">
+      <h3 id="titulo-redes">Redes Sociales</h3>
 
-    <!-- Sección de enlaces rápidos de navegación -->
-    <div class="footer-section">
-      <h3>Enlaces Rápidos</h3>
-      <ul>
-        <!-- Enlaces internos de la web -->
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Acerca de</a></li>
-        <li><a href="#">Contacto</a></li>
+      <ul class="social-links" role="list">
+        <li>
+          <a href="#" aria-label="Visitar Facebook">Facebook</a>
+        </li>
+        <li>
+          <a href="#" aria-label="Visitar Twitter">Twitter</a>
+        </li>
+        <li>
+          <a href="#" aria-label="Visitar Instagram">Instagram</a>
+        </li>
       </ul>
-    </div>
+    </section>
 
-    <!-- Sección de información de contacto -->
-    <div class="footer-section contact-info">
-      <h3>Información de Contacto</h3>
-      <!-- Datos de contacto de la tienda -->
+    <!-- Enlaces rápidos -->
+    <nav class="footer-section" aria-labelledby="titulo-enlaces">
+      <h3 id="titulo-enlaces">Enlaces Rápidos</h3>
+
+      <ul role="list">
+        <li><a routerLink="/" aria-label="Ir al inicio">Inicio</a></li>
+        <li><a routerLink="/acerca" aria-label="Ir a la sección Acerca de">Acerca de</a></li>
+        <li><a routerLink="/contacto" aria-label="Ir a la sección Contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Información de contacto -->
+    <section class="footer-section contact-info" aria-labelledby="titulo-contacto">
+      <h3 id="titulo-contacto">Información de Contacto</h3>
+
       <p>Teléfono: +34 123 456 789</p>
       <p>Email: info@ejemplo.com</p>
-    </div>
+    </section>
 
   </div>
+
 </footer>

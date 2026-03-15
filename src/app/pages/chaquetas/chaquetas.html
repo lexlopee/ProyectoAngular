@@ -1,28 +1,29 @@
-<div id="mensaje" class="mensaje"></div>
-<!-- Contenedor para mostrar mensajes temporales cuando se añade un producto al carrito. -->
+<!-- Mensaje flotante accesible -->
+<div id="mensaje" class="mensaje" aria-live="assertive"></div>
 
-<section class="chaquetas">
-  <h2>Chaquetas</h2>
-  <!-- Título de la sección de chaquetas -->
+<main class="chaquetas" role="main">
 
-  <div class="galeria">
-    <!-- Contenedor que agrupa todas las tarjetas de productos -->
+  <h1>Chaquetas</h1>
 
-    <!-- Primer producto: Chaqueta Azul -->
-    <div class="tarjeta">
+  <div class="galeria" role="list">
+
+    <!-- 1. Chaqueta Azul Diablo North Face -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Chaqueta Azul Diablo North Face, precio 150 euros"
+    >
       <img
         src="https://www.botteroski.com/46890-medium_default/458336-chaqueta-de-plumas-the-north-face-diablo.jpg"
-        alt="Chaqueta Azul"
+        alt="Chaqueta Azul Diablo North Face"
       />
-      <!-- Imagen del producto con texto alternativo -->
-
       <h3>Chaqueta Azul Diablo North Face</h3>
-      <!-- Nombre del producto -->
-
       <p class="precio">150.00€</p>
-      <!-- Precio del producto -->
 
       <button
+        aria-label="Añadir Chaqueta Azul Diablo North Face al carrito"
         (click)="anadir(
           'Chaqueta Azul Diablo North Face',
           150.00,
@@ -31,22 +32,28 @@
       >
         Añadir al carrito
       </button>
-      <!-- Botón que llama al método 'anadir' del componente Angular,
-           pasando nombre, precio e imagen del producto. -->
     </div>
 
-    <!-- Segundo producto: Chaqueta Roja Deportiva -->
-    <div class="tarjeta">
+    <!-- 2. Chaqueta Roja Deportiva -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Chaqueta Roja Deportiva, precio 59.99 euros"
+    >
       <img
         src="https://cdn.siroko.com/products/67c58e51dac0a/590/704/crop_center.jpg?v=1743160410"
         alt="Chaqueta Roja Deportiva"
       />
       <h3>Chaqueta Roja Deportiva</h3>
       <p class="precio">59.99€</p>
+
       <button
+        aria-label="Añadir Chaqueta Roja Deportiva al carrito"
         (click)="anadir(
           'Chaqueta Roja Deportiva',
-          59.9,
+          59.99,
           'https://cdn.siroko.com/products/67c58e51dac0a/590/704/crop_center.jpg?v=1743160410'
         )"
       >
@@ -54,15 +61,23 @@
       </button>
     </div>
 
-    <!-- Tercer producto: Chaqueta Cuero -->
-    <div class="tarjeta">
+    <!-- 3. Chaqueta Cuero -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Chaqueta de cuero, precio 109.99 euros"
+    >
       <img
         src="https://store.hondacanarias.com/media/catalog/product/cache/2d3e303121a652959edd5ff74af5177b/2/3/233-7520022-54_1.jpg"
-        alt="Chaqueta Cuero"
+        alt="Chaqueta de cuero"
       />
       <h3>Chaqueta Cuero</h3>
       <p class="precio">109.99€</p>
+
       <button
+        aria-label="Añadir Chaqueta Cuero al carrito"
         (click)="anadir(
           'Chaqueta Cuero',
           109.99,
@@ -73,15 +88,23 @@
       </button>
     </div>
 
-    <!-- Cuarto producto: Abrigo Pelo Largo -->
-    <div class="tarjeta">
+    <!-- 4. Abrigo Pelo Largo -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Abrigo de pelo largo, precio 79.99 euros"
+    >
       <img
         src="https://www.bolf.es/hpeciai/d7cdd685aebdd46e3fcfc158d18a6b9e/spa_pl_Abrigo-forrado-largo-de-invierno-para-mujer-camel-Bolf-AN105-87340_16.jpg"
-        alt="Abrigo Pelo Largo"
+        alt="Abrigo de pelo largo"
       />
       <h3>Abrigo Pelo Largo</h3>
       <p class="precio">79.99€</p>
+
       <button
+        aria-label="Añadir Abrigo Pelo Largo al carrito"
         (click)="anadir(
           'Abrigo Pelo Largo',
           79.99,
@@ -91,33 +114,51 @@
         Añadir al carrito
       </button>
     </div>
-    <!-- Quinto producto: Chaqueta Elegante Azul -->
-    <div class="tarjeta">
+
+    <!-- 5. Chaqueta Elegante Azul -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Chaqueta elegante azul, precio 85 euros"
+    >
       <img
         src="https://delaespriellastyle.com/media/catalog/product/cache/7a3ea6ca3d1f7e49ca627023822d1a6b/f/a/fa070010-1_1.jpg"
-        alt="Chaqueta Elegante Azul"
+        alt="Chaqueta elegante azul"
       />
       <h3>Chaqueta Elegante Azul</h3>
       <p class="precio">85.00€</p>
+
       <button
+        aria-label="Añadir Chaqueta Elegante Azul al carrito"
         (click)="anadir(
           'Chaqueta Elegante Azul',
-          79.99,
+          85.00,
           'https://delaespriellastyle.com/media/catalog/product/cache/7a3ea6ca3d1f7e49ca627023822d1a6b/f/a/fa070010-1_1.jpg'
         )"
       >
         Añadir al carrito
       </button>
     </div>
-    <!-- Sexto producto: Chaqueta Invierno -->
-    <div class="tarjeta">
+
+    <!-- 6. Chaqueta Invierno -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Chaqueta de invierno con capucha, precio 40 euros"
+    >
       <img
         src="https://pix.bonprix.es/imgc/0/0/2/5/1/2/1/2/4/5/_235/25121245/chaqueta-de-invierno-con-capucha-y-detalles-de-piel-sintetica.jpg"
-        alt="Chaqueta Invierno"
+        alt="Chaqueta de invierno con capucha"
       />
       <h3>Chaqueta Invierno</h3>
       <p class="precio">40.00€</p>
+
       <button
+        aria-label="Añadir Chaqueta Invierno al carrito"
         (click)="anadir(
           'Chaqueta Invierno',
           40.00,
@@ -129,5 +170,4 @@
     </div>
 
   </div>
-  <!-- Fin de galería de chaquetas -->
-</section>
+</main>

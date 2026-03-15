@@ -50,8 +50,8 @@ export class Zapatos {
     nombre,
     precio,
     imagen,
-    categoria: 'camisetas',
-    ruta: '/camisetas'
+    categoria: 'zapatos',
+    ruta: '/zapatos'
   };
 
   this.cestaService.addProducto(producto);

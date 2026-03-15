@@ -1,16 +1,7 @@
 import { UsuarioService } from './../services/usuario.service';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Renderer2, ElementRef } from '@angular/core';
 import { UsuarioRegistro } from '../services/usuario.service';
 
-/**
- * Componente de la sección de usuario.
- *
- * - Gestiona las pestañas de login y registro.
- * - Captura y procesa los formularios de autenticación.
- * - Interactúa con el servicio de usuarios para validar y registrar.
- *
- * @version 1.0.0
- */
 @Component({
   selector: 'app-seccion-usuario',
   standalone: true,
@@ -19,64 +10,91 @@ import { UsuarioRegistro } from '../services/usuario.service';
 })
 export class SeccionUsuario implements AfterViewInit {
 
-  /**
-   * Constructor del componente.
-   * @param UsuarioService Servicio de usuarios para login, registro y gestión de datos.
-   */
-  constructor(private UsuarioService: UsuarioService) {}
+  constructor(
+    private UsuarioService: UsuarioService,
+    private renderer: Renderer2,
+    private el: ElementRef
+  ) {}
 
-  /**
-   * Hook del ciclo de vida de Angular.
-   * Se ejecuta después de que la vista se inicializa.
-   * Configura pestañas y listeners de formularios.
-   */
   ngAfterViewInit(): void {
     this.setupTabs();
-
-    const loginForm = document.getElementById('loginForm') as HTMLFormElement;
-    loginForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      this.loginUsuario();
-    });
-
-    const registerForm = document.getElementById('registerForm') as HTMLFormElement;
-    registerForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      this.registrarUsuario();
-    });
+    this.setupForms();
   }
 
   /**
-   * Configura el cambio de pestañas entre login y registro.
-   * - Activa/desactiva botones.
-   * - Muestra el formulario correspondiente.
+   * Configura los listeners de los formularios
+   */
+  private setupForms(): void {
+    const loginForm = this.el.nativeElement.querySelector('#loginForm') as HTMLFormElement;
+    const registerForm = this.el.nativeElement.querySelector('#registerForm') as HTMLFormElement;
+
+    if (loginForm) {
+      this.renderer.listen(loginForm, 'submit', (event) => {
+        event.preventDefault();
+        this.loginUsuario();
+      });
+    }
+
+    if (registerForm) {
+      this.renderer.listen(registerForm, 'submit', (event) => {
+        event.preventDefault();
+        this.registrarUsuario();
+      });
+    }
+  }
+
+  /**
+   * Configura pestañas accesibles:
+   * - role="tab"
+   * - aria-selected
+   * - aria-controls
+   * - role="tabpanel"
+   * - foco al cambiar
    */
   private setupTabs(): void {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const forms = document.querySelectorAll('.login-form');
+    const tabButtons = this.el.nativeElement.querySelectorAll('.tab-button');
+    const forms = this.el.nativeElement.querySelectorAll('.login-form');
 
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        forms.forEach(form => form.classList.remove('active'));
-
-        button.classList.add('active');
+    tabButtons.forEach((button: HTMLElement) => {
+      this.renderer.listen(button, 'click', () => {
         const tabName = button.getAttribute('data-tab');
-        const formToShow = document.getElementById(tabName + 'Form');
-        if (formToShow) formToShow.classList.add('active');
+        const formToShow = this.el.nativeElement.querySelector(`#${tabName}Form`);
+
+        // Desactivar todas las pestañas
+        tabButtons.forEach((btn: HTMLElement) => {
+          this.renderer.removeClass(btn, 'active');
+          this.renderer.setAttribute(btn, 'aria-selected', 'false');
+        });
+
+        // Ocultar todos los formularios
+        forms.forEach((form: HTMLElement) => {
+          this.renderer.removeClass(form, 'active');
+          this.renderer.setAttribute(form, 'hidden', 'true');
+        });
+
+        // Activar pestaña seleccionada
+        this.renderer.addClass(button, 'active');
+        this.renderer.setAttribute(button, 'aria-selected', 'true');
+
+        // Mostrar formulario correspondiente
+        if (formToShow) {
+          this.renderer.addClass(formToShow, 'active');
+          this.renderer.removeAttribute(formToShow, 'hidden');
+
+          // Mover foco al primer input del formulario
+          const firstInput = formToShow.querySelector('input');
+          if (firstInput) firstInput.focus();
+        }
       });
     });
   }
 
   /**
-   * Procesa el formulario de login.
-   * - Obtiene email/usuario y contraseña.
-   * - Valida credenciales con el servicio de usuarios.
-   * - Establece el usuario actual si es correcto.
+   * LOGIN
    */
   private loginUsuario(): void {
-    const emailOrUser = (document.getElementById('loginUsuario') as HTMLInputElement).value;
-    const password = (document.getElementById('loginClave') as HTMLInputElement).value;
+    const emailOrUser = (this.el.nativeElement.querySelector('#loginUsuario') as HTMLInputElement).value;
+    const password = (this.el.nativeElement.querySelector('#loginClave') as HTMLInputElement).value;
 
     const usuario = this.UsuarioService.login(emailOrUser, password);
 
@@ -89,16 +107,13 @@ export class SeccionUsuario implements AfterViewInit {
   }
 
   /**
-   * Procesa el formulario de registro.
-   * - Valida coincidencia de contraseñas.
-   * - Verifica fortaleza de la contraseña.
-   * - Genera y registra un nuevo usuario.
+   * REGISTRO
    */
   private registrarUsuario(): void {
-    const nombre = (document.getElementById('regNombre') as HTMLInputElement).value;
-    const email = (document.getElementById('regEmail') as HTMLInputElement).value;
-    const password = (document.getElementById('regClave') as HTMLInputElement).value;
-    const confirmar = (document.getElementById('regConfirmarClave') as HTMLInputElement).value;
+    const nombre = (this.el.nativeElement.querySelector('#regNombre') as HTMLInputElement).value;
+    const email = (this.el.nativeElement.querySelector('#regEmail') as HTMLInputElement).value;
+    const password = (this.el.nativeElement.querySelector('#regClave') as HTMLInputElement).value;
+    const confirmar = (this.el.nativeElement.querySelector('#regConfirmarClave') as HTMLInputElement).value;
 
     if (password !== confirmar) {
       alert('Las contraseñas no coinciden ❌');

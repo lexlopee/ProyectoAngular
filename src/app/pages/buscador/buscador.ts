@@ -36,10 +36,25 @@ export class BuscadorComponent {
   }
 
   // ACCESIBILIDAD: navegación por teclado
-  onKeyDown(event: KeyboardEvent, producto: Producto) {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      this.irAProducto(producto);
-    }
+onKeyDown(event: KeyboardEvent, producto: Producto) {
+  const target = event.target as HTMLElement;
+
+  if (event.key === 'ArrowDown') {
+    event.preventDefault();
+    const next = target.nextElementSibling as HTMLElement;
+    if (next) next.focus();
   }
+
+  if (event.key === 'ArrowUp') {
+    event.preventDefault();
+    const prev = target.previousElementSibling as HTMLElement;
+    if (prev) prev.focus();
+  }
+
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    this.irAProducto(producto);
+  }
+}
+
 }

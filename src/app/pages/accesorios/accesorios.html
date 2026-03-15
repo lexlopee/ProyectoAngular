@@ -1,27 +1,29 @@
-<!-- Contenedor para mostrar mensajes al usuario (por ejemplo: "Producto añadido") -->
-<div id="mensaje" class="mensaje"></div>
+<!-- Mensaje flotante accesible -->
+<div id="mensaje" class="mensaje" aria-live="assertive"></div>
 
-<!-- Sección principal de accesorios -->
-<section class="accesorios">
-  <h2>Accesorios</h2>
+<main class="accesorios" role="main">
 
-  <!-- Galería que contiene todas las tarjetas de productos -->
-  <div class="galeria">
+  <h1>Accesorios</h1>
 
-    <!--  Producto 1: Gafas de sol -->
-    <div class="tarjeta">
-      <!-- Imagen del producto -->
+  <div class="galeria" role="list">
+
+    <!-- 1. Gafas de sol -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Gafas de sol, precio 29.99 euros"
+    >
       <img
         src="https://www.hawkersco.com/on/demandware.static/-/Sites-Master-Catalog-Sunglasses/default/dw2a0c821b/images/large/HONR21BBTP_L.jpg"
         alt="Gafas de sol"
       />
       <h3>Gafas de sol</h3>
-
-      <!-- Precio del producto -->
       <p class="precio">29.99€</p>
 
-      <!-- Botón que llama a la función anadir(...) enviando nombre, precio e imagen -->
       <button
+        aria-label="Añadir Gafas de sol al carrito"
         (click)="anadir(
           'Gafas de sol',
           29.99,
@@ -32,8 +34,14 @@
       </button>
     </div>
 
-    <!--  Producto 2: Gorra Azul -->
-    <div class="tarjeta">
+    <!-- 2. Gorra Azul -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Gorra Azul, precio 19.99 euros"
+    >
       <img
         src="https://i8.amplience.net/t/jpl/jdes_product_list?plu=jd_771795_al&qlt=85&qlt=92&w=320&h=320&v=1&fmt=auto"
         alt="Gorra Azul"
@@ -41,8 +49,8 @@
       <h3>Gorra Azul</h3>
       <p class="precio">19.99€</p>
 
-      <!-- Botón que añade el producto al carrito -->
       <button
+        aria-label="Añadir Gorra Azul al carrito"
         (click)="anadir(
           'Gorra Azul',
           19.99,
@@ -53,8 +61,14 @@
       </button>
     </div>
 
-    <!--  Producto 3: Collar duo plata -->
-    <div class="tarjeta">
+    <!-- 3. Collar duo plata -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Collar duo plata, precio 24.99 euros"
+    >
       <img
         src="https://singularu.com/cdn/shop/products/WCHLS0A925P00XX_2_puesta_1e23626a-e76d-48d5-a222-eb7ecff3333b.jpg?v=1669027488&width=3000"
         alt="Collar duo plata"
@@ -62,8 +76,8 @@
       <h3>Collar duo plata</h3>
       <p class="precio">24.99€</p>
 
-      <!-- Botón que llama a anadir con los datos del producto -->
       <button
+        aria-label="Añadir Collar duo plata al carrito"
         (click)="anadir(
           'Collar duo plata',
           24.99,
@@ -74,21 +88,23 @@
       </button>
     </div>
 
-
-    <!--  Producto 4: Pulseta cuero -->
-    <div class="tarjeta">
-      <!-- Imagen del producto -->
+    <!-- 4. Pulsera cuero -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Pulsera de cuero, precio 5.99 euros"
+    >
       <img
         src="https://static.zara.net/assets/public/f412/b1fc/d8d14f3ebe38/f53e8e48b72f/05717400800-e1/05717400800-e1.jpg?ts=1747994425924&w=352"
-        alt="Pulsera cuero"
+        alt="Pulsera de cuero"
       />
       <h3>Pulsera cuero</h3>
-
-      <!-- Precio del producto -->
       <p class="precio">5.99€</p>
 
-      <!-- Botón que llama a la función anadir(...) enviando nombre, precio e imagen -->
       <button
+        aria-label="Añadir Pulsera cuero al carrito"
         (click)="anadir(
           'Pulsera cuero',
           5.99,
@@ -99,20 +115,23 @@
       </button>
     </div>
 
-    <!--  Producto 5: Pendientes de novia -->
-    <div class="tarjeta">
-      <!-- Imagen del producto -->
+    <!-- 5. Pendientes de novia -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Pendientes de novia, precio 25.99 euros"
+    >
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT33wr3h_Wo3Yk8LeJAtM2pUrCVKgwyo-e79g&s"
         alt="Pendientes de novia"
       />
       <h3>Pendientes de Novia</h3>
-
-      <!-- Precio del producto -->
       <p class="precio">25.99€</p>
 
-      <!-- Botón que llama a la función anadir(...) enviando nombre, precio e imagen -->
       <button
+        aria-label="Añadir Pendientes de Novia al carrito"
         (click)="anadir(
           'Pendientes de Novia',
           25.99,
@@ -123,20 +142,23 @@
       </button>
     </div>
 
-    <!--  Producto 6: Gafas de sol -->
-    <div class="tarjeta">
-      <!-- Imagen del producto -->
+    <!-- 6. Sombrero Azul -->
+    <div 
+      class="tarjeta"
+      role="listitem"
+      role="article"
+      tabindex="0"
+      aria-label="Sombrero Azul, precio 17.99 euros"
+    >
       <img
         src="https://www.tuskamisetas.com/resources/images/046_69_250_m-2025_02.jpg"
         alt="Sombrero Azul"
       />
       <h3>Sombrero Azul</h3>
-
-      <!-- Precio del producto -->
       <p class="precio">17.99€</p>
 
-      <!-- Botón que llama a la función anadir(...) enviando nombre, precio e imagen -->
       <button
+        aria-label="Añadir Sombrero Azul al carrito"
         (click)="anadir(
           'Sombrero Azul',
           17.99,
@@ -148,5 +170,4 @@
     </div>
 
   </div>
-
-</section>
+</main>

@@ -1,4 +1,4 @@
-<div class="buscador-container">
+<div class="buscador-container" role="search" aria-label="Buscador de productos">
 
   <!-- LABEL ACCESIBLE -->
   <label for="buscador" class="visually-hidden">Buscar productos</label>
@@ -6,7 +6,7 @@
   <!-- INPUT ACCESIBLE -->
   <input
     id="buscador"
-    type="text"
+    type="search"
     placeholder="Buscar producto..."
     [value]="busqueda"
     (input)="onBuscar($event)"
@@ -14,6 +14,7 @@
     aria-label="Buscar productos"
     aria-controls="resultados-busqueda"
     aria-expanded="{{ resultados.length > 0 }}"
+    autocomplete="off"
   />
 
   <!-- REGIÓN DINÁMICA PARA LECTORES DE PANTALLA -->
@@ -34,7 +35,7 @@
       (click)="irAProducto(producto)"
       role="option"
       tabindex="0"
-      aria-selected="false"
+      [attr.aria-selected]="false"
       (keydown)="onKeyDown($event, producto)"
     >
       <img
