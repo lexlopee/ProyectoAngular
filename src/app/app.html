@@ -1,8 +1,13 @@
+<!-- SKIP LINK: permite a usuarios de teclado saltar al contenido principal -->
+<a href="#contenido-principal" class="skip-link">
+  Saltar al contenido principal
+</a>
+
 <div class="layout">
 
   <app-cabecera></app-cabecera>
 
-  <main class="content">
+  <main id="contenido-principal" class="content" tabindex="-1">
     <router-outlet></router-outlet>
   </main>
 

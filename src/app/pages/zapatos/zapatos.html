@@ -1,173 +1,120 @@
-<!-- Mensaje flotante accesible -->
-<div id="mensaje" class="mensaje" aria-live="assertive"></div>
+<div id="mensaje" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<main class="zapatos" role="main">
+<main class="page-container" role="main">
+
+  <nav class="breadcrumb" aria-label="Ubicación en el sitio">
+    <ol>
+      <li><a routerLink="/" aria-label="Ir al inicio">Inicio</a></li>
+      <li aria-hidden="true"> › </li>
+      <li aria-current="page">Zapatos</li>
+    </ol>
+  </nav>
 
   <h1>Zapatos</h1>
 
-  <div class="galeria" role="list">
+  <ul class="galeria" role="list" aria-label="Catálogo de zapatos">
 
-    <!-- 1. Zapatillas Deportivas Negras -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Zapatillas Deportivas Negras, precio 140 euros"
-    >
-      <img
-        src="https://img.joomcdn.net/1a3b535c210b6b96c09493591c422dc11d9bbec4_original.jpeg"
-        alt="Zapatillas Deportivas Negras"
-      />
-      <h3>Zapatillas Deportivas Negras</h3>
-      <p class="precio">140€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Zapatillas Deportivas Negras, 140 euros">
+        <img src="https://img.joomcdn.net/1a3b535c210b6b96c09493591c422dc11d9bbec4_original.jpeg"
+          alt="Zapatillas deportivas de color negro con suela blanca"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Zapatillas Deportivas Negras</h2>
+          <p class="precio">140,00 €</p>
+          <button aria-label="Añadir Zapatillas Deportivas Negras al carrito"
+            (click)="anadir('Zapatillas Deportivas Negras', 140,
+            'https://img.joomcdn.net/1a3b535c210b6b96c09493591c422dc11d9bbec4_original.jpeg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Zapatillas Deportivas Negras al carrito"
-        (click)="anadir(
-          'Zapatillas Deportivas Negras',
-          140,
-          'https://img.joomcdn.net/1a3b535c210b6b96c09493591c422dc11d9bbec4_original.jpeg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Zapatillas con Tacón Azules, 69 euros">
+        <img src="https://luisatoledo.es/2469/zapatos-azules-tacon-ancho-eva.jpg"
+          alt="Zapatos de tacón ancho color azul eléctrico"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Zapatillas con Tacón Azules</h2>
+          <p class="precio">69,00 €</p>
+          <button aria-label="Añadir Zapatillas con Tacón Azules al carrito"
+            (click)="anadir('Zapatillas con Tacon Azules', 69,
+            'https://luisatoledo.es/2469/zapatos-azules-tacon-ancho-eva.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 2. Zapatillas con Tacón Azules -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Zapatillas con tacón azules, precio 69 euros"
-    >
-      <img
-        src="https://luisatoledo.es/2469/zapatos-azules-tacon-ancho-eva.jpg"
-        alt="Zapatillas con tacón azules"
-      />
-      <h3>Zapatillas con Tacón Azules</h3>
-      <p class="precio">69€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Crocs Negras, 110 euros">
+        <img src="https://i5.walmartimages.com/asr/d15b955f-63ec-4cdc-aaa4-37b28807b81f.6856aa51ea991e5595d5396efb074517.jpeg"
+          alt="Zuecos Crocs de color negro"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Crocs Negras</h2>
+          <p class="precio">110,00 €</p>
+          <button aria-label="Añadir Crocs Negras al carrito"
+            (click)="anadir('Crocs Negras', 110,
+            'https://i5.walmartimages.com/asr/d15b955f-63ec-4cdc-aaa4-37b28807b81f.6856aa51ea991e5595d5396efb074517.jpeg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Zapatillas con Tacón Azules al carrito"
-        (click)="anadir(
-          'Zapatillas con Tacon Azules',
-          69,
-          'https://luisatoledo.es/2469/zapatos-azules-tacon-ancho-eva.jpg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Zapatillas Adidas Campus, 110,99 euros">
+        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSdbH_VF8sehHsThCYWq7VgbxrTKg6je5ylBwghj1CplBWseNc4TfTVHirmO4PSsp4He6A-dREw9knzT-xETAbNjlCmXxiEcwjvOWM579cuDSdn2-oo2nl0MnI_7SqQ3A37kLAu88t5nfc&usqp=CAc"
+          alt="Zapatillas Adidas Campus en color blanco y verde"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Zapatillas Adidas Campus</h2>
+          <p class="precio">110,99 €</p>
+          <button aria-label="Añadir Zapatillas Adidas Campus al carrito"
+            (click)="anadir('Zapatillas Adidas Campus', 110.99,
+            'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSdbH_VF8sehHsThCYWq7VgbxrTKg6je5ylBwghj1CplBWseNc4TfTVHirmO4PSsp4He6A-dREw9knzT-xETAbNjlCmXxiEcwjvOWM579cuDSdn2-oo2nl0MnI_7SqQ3A37kLAu88t5nfc&usqp=CAc')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 3. Crocs Negras -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Crocs negras, precio 110 euros"
-    >
-      <img
-        src="https://i5.walmartimages.com/asr/d15b955f-63ec-4cdc-aaa4-37b28807b81f.6856aa51ea991e5595d5396efb074517.jpeg"
-        alt="Crocs negras"
-      />
-      <h3>Crocs Negras</h3>
-      <p class="precio">110€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Sandalias Azules Adidas, 40 euros">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQpdeqX85mxi_-25R1MKt8aYLunTtOlRxmOJdwglLsmFLK6dUZXd1B_1equNvj_kqLnCuxUO5PQIdlMHm-MharxxW-m2pJTh0u1HfPPKTP4hBgXiiUg4QohNHarXMFuMQXkHM4KIH_i77s&usqp=CAc"
+          alt="Sandalias deportivas Adidas color azul"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Sandalias Azules Adidas</h2>
+          <p class="precio">40,00 €</p>
+          <button aria-label="Añadir Sandalias Azules Adidas al carrito"
+            (click)="anadir('Sandalias Azules Adidas', 40,
+            'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQpdeqX85mxi_-25R1MKt8aYLunTtOlRxmOJdwglLsmFLK6dUZXd1B_1equNvj_kqLnCuxUO5PQIdlMHm-MharxxW-m2pJTh0u1HfPPKTP4hBgXiiUg4QohNHarXMFuMQXkHM4KIH_i77s&usqp=CAc')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Crocs Negras al carrito"
-        (click)="anadir(
-          'Crocs Negras',
-          110,
-          'https://i5.walmartimages.com/asr/d15b955f-63ec-4cdc-aaa4-37b28807b81f.6856aa51ea991e5595d5396efb074517.jpeg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Botas Cuero Negras, 54 euros">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcRuF1YoyyJbCmf2kN-QzwPgibQwZeyii93A&s"
+          alt="Botas de cuero negro con cremallera lateral"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Botas Cuero Negras</h2>
+          <p class="precio">54,00 €</p>
+          <button aria-label="Añadir Botas Cuero Negras al carrito"
+            (click)="anadir('Botas Cuero Negras', 54,
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcRuF1YoyyJbCmf2kN-QzwPgibQwZeyii93A&s')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 4. Zapatillas Adidas Campus -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Zapatillas Adidas Campus, precio 110.99 euros"
-    >
-      <img
-        src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSdbH_VF8sehHsThCYWq7VgbxrTKg6je5ylBwghj1CplBWseNc4TfTVHirmO4PSsp4He6A-dREw9knzT-xETAbNjlCmXxiEcwjvOWM579cuDSdn2-oo2nl0MnI_7SqQ3A37kLAu88t5nfc&usqp=CAc"
-        alt="Zapatillas Adidas Campus"
-      />
-      <h3>Zapatillas Adidas Campus</h3>
-      <p class="precio">110.99€</p>
-
-      <button
-        aria-label="Añadir Zapatillas Adidas Campus al carrito"
-        (click)="anadir(
-          'Zapatillas Adidas Campus',
-          110.99,
-          'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSdbH_VF8sehHsThCYWq7VgbxrTKg6je5ylBwghj1CplBWseNc4TfTVHirmO4PSsp4He6A-dREw9knzT-xETAbNjlCmXxiEcwjvOWM579cuDSdn2-oo2nl0MnI_7SqQ3A37kLAu88t5nfc&usqp=CAc'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- 5. Sandalias Azules Adidas -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Sandalias azules Adidas, precio 25.99 euros"
-    >
-      <img
-        src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQpdeqX85mxi_-25R1MKt8aYLunTtOlRxmOJdwglLsmFLK6dUZXd1B_1equNvj_kqLnCuxUO5PQIdlMHm-MharxxW-m2pJTh0u1HfPPKTP4hBgXiiUg4QohNHarXMFuMQXkHM4KIH_i77s&usqp=CAc"
-        alt="Sandalias azules Adidas"
-      />
-      <h3>Sandalias Azules Adidas</h3>
-      <p class="precio">25.99€</p>
-
-      <button
-        aria-label="Añadir Sandalias Azules Adidas al carrito"
-        (click)="anadir(
-          'Sandalias Azules Adidas',
-          25.99,
-          'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQpdeqX85mxi_-25R1MKt8aYLunTtOlRxmOJdwglLsmFLK6dUZXd1B_1equNvj_kqLnCuxUO5PQIdlMHm-MharxxW-m2pJTh0u1HfPPKTP4hBgXiiUg4QohNHarXMFuMQXkHM4KIH_i77s&usqp=CAc'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- 6. Botas Cuero Negro -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Botas de cuero negras, precio 54 euros"
-    >
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcRuF1YoyyJbCmf2kN-QzwPgibQwZeyii93A&s"
-        alt="Botas de cuero negras"
-      />
-      <h3>Botas Cuero Negro</h3>
-      <p class="precio">54.00€</p>
-
-      <button
-        aria-label="Añadir Botas Cuero Negro al carrito"
-        (click)="anadir(
-          'Botas Cuero Negras',
-          54.00,
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcRuF1YoyyJbCmf2kN-QzwPgibQwZeyii93A&s'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-  </div>
+  </ul>
 </main>

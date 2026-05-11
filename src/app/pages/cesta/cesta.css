@@ -1,61 +1,197 @@
 .cesta-container {
-   padding: 2rem;
-   background-color:
-    #f9f9f9;
-    min-height: 80vh;
-  }
-h2 {
-  text-align: center;
-  color: #333;
-   margin-bottom: 2rem;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 80vh;
+  font-family: 'Poppins', sans-serif;
 }
+
+/* Migas de pan */
+.breadcrumb ol {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: #1a237e;
+  text-decoration: underline;
+}
+
+.breadcrumb [aria-current="page"] {
+  color: #555555;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e; /* Ratio 17:1 ✓ */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Cesta vacía */
+.cesta-vacia {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555555; /* Ratio 7:1 ✓ */
+  padding: 2rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.cesta-vacia a {
+  color: #1a237e;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Items de la cesta (generados por JS) */
 .item {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: #ffffff;
   border-radius: 10px;
   margin-bottom: 1rem;
   padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
- }
-.item:hover {
-  transform: translateY(-3px);
- }
-img {
-   width: 100px;
-   height: 120px;
-   object-fit: cover;
-   border-radius: 8px;
-   margin-right: 1.5rem;
- }
-h3 { margin: 0;
-  color: #222;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s ease;
+  gap: 1rem;
 }
-.precio {
-  font-weight: bold;
-  color: #e91e63;
-  margin-bottom: 0.8rem;
- }
-button {
-  background-color: #007bff;
-  color: #fff;
+
+.item:hover {
+  transform: translateY(-2px);
+}
+
+.item img {
+  width: 90px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.item h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a2e; /* Ratio 17:1 ✓ */
+  margin: 0 0 0.25rem 0;
+}
+
+.item .precio {
+  font-weight: 700;
+  color: #880e4f; /* Ratio 7.2:1 ✓ */
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Botón eliminar en item */
+.item button {
+  background: #c62828;
+  color: #ffffff; /* Ratio 6:1 ✓ */
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
   min-height: 44px;
   min-width: 44px;
- }
-button:hover {
-   background-color: #0056b3;
- }
-.vaciar {
-  background-color: #dc3545;
-  margin-top: 1rem;
- }
-.vaciar:hover {
-   background-color: #a71d2a;
-   }
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
 
+.item button:hover {
+  background: #b71c1c;
+}
 
+/* Resumen y total */
+.cesta-resumen {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f5f5f5;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
 
+.total-cesta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.cesta-acciones {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Botones de acción */
+.btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secundario {
+  background: #e8eaf6;
+  color: #1a237e; /* Ratio 9.5:1 ✓ */
+  border: 2px solid #1a237e;
+}
+
+.btn-secundario:hover {
+  background: #c5cae9;
+}
+
+.btn-peligro {
+  background: #c62828;
+  color: #ffffff; /* Ratio 6:1 ✓ */
+}
+
+.btn-peligro:hover {
+  background: #b71c1c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .item {
+    flex-wrap: wrap;
+  }
+
+  .item img {
+    width: 70px;
+    height: 80px;
+  }
+
+  .cesta-acciones {
+    justify-content: stretch;
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

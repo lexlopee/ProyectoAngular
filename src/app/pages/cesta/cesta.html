@@ -1,31 +1,51 @@
-<main class="cesta-container" role="main">
+<main class="cesta-container" role="main" aria-label="Cesta de la compra">
 
-  <h1>Mi Cesta</h1>
+  <!-- Migas de pan -->
+  <nav class="breadcrumb" aria-label="Ubicación en el sitio">
+    <ol>
+      <li><a routerLink="/" aria-label="Ir a la página de inicio">Inicio</a></li>
+      <li aria-hidden="true"> › </li>
+      <li aria-current="page">Mi cesta</li>
+    </ol>
+  </nav>
 
-  <!-- Mensaje accesible cuando está vacía -->
-  <p id="vacia" aria-live="polite" style="display:none;">
-    La cesta está vacía
+  <h1>Mi cesta</h1>
+
+  <!-- Mensaje cesta vacía (accesible) -->
+  <p
+    id="vacia"
+    class="cesta-vacia"
+    aria-live="polite"
+    style="display:none;">
+    Tu cesta está vacía. <a routerLink="/" aria-label="Ir a la tienda para añadir productos">Continúa comprando</a>
   </p>
 
-  <!-- Lista accesible de productos -->
-  <div 
-    id="lista-cesta" 
-    role="list" 
-    aria-label="Productos en la cesta">
+  <!-- Lista de productos -->
+  <div
+    id="lista-cesta"
+    role="list"
+    aria-label="Productos en la cesta"
+    aria-live="polite">
   </div>
 
-  <!-- Total accesible -->
-  <div class="total-cesta">
-    Total: 
-    <span id="total-cesta" aria-live="polite">0.00</span> €
-  </div>
+  <!-- Resumen y total -->
+  <section class="cesta-resumen" aria-label="Resumen del pedido">
+    <div class="total-cesta">
+      <span>Total:</span>
+      <span id="total-cesta" aria-live="polite" aria-atomic="true">0,00 €</span>
+    </div>
 
-  <!-- Botón accesible para vaciar -->
-  <button 
-    id="vaciar-cesta" 
-    class="vaciar"
-    aria-label="Vaciar todos los productos de la cesta">
-    Vaciar cesta
-  </button>
+    <div class="cesta-acciones">
+      <a routerLink="/" class="btn btn-secundario" aria-label="Seguir comprando más productos">
+        ← Seguir comprando
+      </a>
+      <button
+        id="vaciar-cesta"
+        class="btn btn-peligro"
+        aria-label="Vaciar todos los productos de la cesta">
+        🗑 Vaciar cesta
+      </button>
+    </div>
+  </section>
 
 </main>

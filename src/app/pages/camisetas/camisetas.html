@@ -1,181 +1,120 @@
-<!-- Mensaje flotante accesible -->
-<div id="mensaje" class="mensaje" aria-live="assertive"></div>
+<div id="mensaje" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<main class="camisetas" role="main">
+<main class="page-container" role="main">
 
-  <!-- Título principal -->
+  <nav class="breadcrumb" aria-label="Ubicación en el sitio">
+    <ol>
+      <li><a routerLink="/" aria-label="Ir al inicio">Inicio</a></li>
+      <li aria-hidden="true"> › </li>
+      <li aria-current="page">Camisetas</li>
+    </ol>
+  </nav>
+
   <h1>Camisetas</h1>
 
-  <!-- Galería accesible -->
-  <div class="galeria" role="list">
+  <ul class="galeria" role="list" aria-label="Catálogo de camisetas">
 
-    <!-- TARJETA 1 -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Camiseta floral Malva, precio 24.99 euros"
-    >
-      <img
-        src="https://imgs.search.brave.com/DL4dg_-GUohllkKensJCnVVdD6O5hPDaTvoapXrEyQM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9taXJ0/by5jb20vY2RuL3No/b3AvZmlsZXMvMDQy/NjFfMDA1MF8xLmpw/Zz92PTE3NTIwNDk3/Mzgmd2lkdGg9MzIw"
-        alt="Camiseta floral Malva"
-      />
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Camiseta floral Malva, 24,99 euros">
+        <img src="https://www.monoymona.es/wp-content/uploads/sites/6/2021/01/camiseta-hombre-con-estampado-floral-Malva.jpg"
+          alt="Camiseta floral Malva con estampado de flores en tono morado"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Camiseta floral Malva</h2>
+          <p class="precio">24,99 €</p>
+          <button aria-label="Añadir Camiseta floral Malva al carrito"
+            (click)="anadir('Camiseta floral Malva', 24.99,
+            'https://www.monoymona.es/wp-content/uploads/sites/6/2021/01/camiseta-hombre-con-estampado-floral-Malva.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <h3>Camiseta floral Malva</h3>
-      <p class="precio">24.99€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Camiseta azul Navy, 19,99 euros">
+        <img src="https://tascon.es/cdn/shop/files/REEF_BISMARKRF.S24.3RMEN0723-NAVY-1.jpg?v=1718381426&width=1100"
+          alt="Camiseta de color azul marino estilo Navy"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Camiseta azul Navy</h2>
+          <p class="precio">19,99 €</p>
+          <button aria-label="Añadir Camiseta azul Navy al carrito"
+            (click)="anadir('Camiseta azul Navy', 19.99,
+            'https://tascon.es/cdn/shop/files/REEF_BISMARKRF.S24.3RMEN0723-NAVY-1.jpg?v=1718381426&width=1100')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Camiseta floral Malva al carrito"
-        (click)="anadir(
-          'Camiseta floral Malva',
-          24.99,
-          'https://imgs.search.brave.com/DL4dg_-GUohllkKensJCnVVdD6O5hPDaTvoapXrEyQM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9taXJ0/by5jb20vY2RuL3No/b3AvZmlsZXMvMDQy/NjFfMDA1MF8xLmpw/Zz92PTE3NTIwNDk3/Mzgmd2lkdGg9MzIw'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Camiseta estampada Halloween, 22,50 euros">
+        <img src="https://assets-polinesia.imgix.net/media/catalog/product/C/A/CAMISETA_CASUAL_Polinesia_CAMISETA_HALLOWEEN_HOMBRE_6325137417-831-1_29092025101045.jpg?auto=format&fit=max&w=1300&q=75"
+          alt="Camiseta con estampado de Halloween en colores negro y naranja"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Camiseta estampada Halloween</h2>
+          <p class="precio">22,50 €</p>
+          <button aria-label="Añadir Camiseta estampada Halloween al carrito"
+            (click)="anadir('Camiseta estampada Halloween', 22.50,
+            'https://assets-polinesia.imgix.net/media/catalog/product/C/A/CAMISETA_CASUAL_Polinesia_CAMISETA_HALLOWEEN_HOMBRE_6325137417-831-1_29092025101045.jpg?auto=format&fit=max&w=1300&q=75')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- TARJETA 2 -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Camiseta azul Navy, precio 19.99 euros"
-    >
-      <img
-        src="https://tascon.es/cdn/shop/files/REEF_BISMARKRF.S24.3RMEN0723-NAVY-1.jpg?v=1718381426&width=1100"
-        alt="Camiseta azul Navy"
-      />
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Camiseta Dior Amarilla, 50 euros">
+        <img src="https://diorama.dam-broadcast.com/cdn-cgi/image/width=3000,format=auto/pm_11872_1238_1238598-dtr6cax6vj-whr.jpg"
+          alt="Camiseta amarilla estilo Dior con diseño elegante"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Camiseta Dior Amarilla</h2>
+          <p class="precio">50,00 €</p>
+          <button aria-label="Añadir Camiseta Dior Amarilla al carrito"
+            (click)="anadir('Camiseta Dior Amarilla', 50.00,
+            'https://diorama.dam-broadcast.com/cdn-cgi/image/width=3000,format=auto/pm_11872_1238_1238598-dtr6cax6vj-whr.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <h3>Camiseta azul Navy</h3>
-      <p class="precio">19.99€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Camiseta Navideña, 22,99 euros">
+        <img src="https://jerseynavideno.com/cdn/shop/products/Camiseta-Navidena-Merry-Christmas-Pinguino.jpg?crop=region&crop_height=1000&crop_left=100&crop_top=0&crop_width=800&v=1725447491&width=1000"
+          alt="Camiseta navideña con pingüino y mensaje Merry Christmas"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Camiseta Navideña</h2>
+          <p class="precio">22,99 €</p>
+          <button aria-label="Añadir Camiseta Navideña al carrito"
+            (click)="anadir('Camiseta Navideña', 22.99,
+            'https://jerseynavideno.com/cdn/shop/products/Camiseta-Navidena-Merry-Christmas-Pinguino.jpg?crop=region&crop_height=1000&crop_left=100&crop_top=0&crop_width=800&v=1725447491&width=1000')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Camiseta azul Navy al carrito"
-        (click)="anadir(
-          'Camiseta azul Navy',
-          19.99,
-          'https://tascon.es/cdn/shop/files/REEF_BISMARKRF.S24.3RMEN0723-NAVY-1.jpg?v=1718381426&width=1100'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Camiseta Torreznos, 30 euros">
+        <img src="https://cdn-ileglgb.nitrocdn.com/DyoxkJBdoPZveiwtEbqoEJPbXrLxuiVh/assets/images/optimized/rev-e37012b/ganafote.com/wp-content/uploads/2025/12/area112.png"
+          alt="Camiseta blanca con estampado de torreznos, producto gastronómico español"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Camiseta Torreznos</h2>
+          <p class="precio">30,00 €</p>
+          <button aria-label="Añadir Camiseta Torreznos al carrito"
+            (click)="anadir('Camiseta Torreznos', 30.00,
+            'https://cdn-ileglgb.nitrocdn.com/DyoxkJBdoPZveiwtEbqoEJPbXrLxuiVh/assets/images/optimized/rev-e37012b/ganafote.com/wp-content/uploads/2025/12/area112.png')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- TARJETA 3 -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Camiseta estampada Halloween, precio 22.50 euros"
-    >
-      <img
-        src="https://assets-polinesia.imgix.net/media/catalog/product/C/A/CAMISETA_CASUAL_Polinesia_CAMISETA_HALLOWEEN_HOMBRE_6325137417-831-1_29092025101045.jpg?auto=format&fit=max&w=1300&q=75"
-        alt="Camiseta estampada Halloween"
-      />
-
-      <h3>Camiseta estampada Halloween</h3>
-      <p class="precio">22.50€</p>
-
-      <button
-        aria-label="Añadir Camiseta estampada Halloween al carrito"
-        (click)="anadir(
-          'Camiseta estampada Halloween',
-          22.50,
-          'https://assets-polinesia.imgix.net/media/catalog/product/C/A/CAMISETA_CASUAL_Polinesia_CAMISETA_HALLOWEEN_HOMBRE_6325137417-831-1_29092025101045.jpg?auto=format&fit=max&w=1300&q=75'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- TARJETA 4 -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Camiseta Dior Amarilla, precio 50 euros"
-    >
-      <img
-        src="https://diorama.dam-broadcast.com/cdn-cgi/image/width=3000,format=auto/pm_11872_1238_1238598-dtr6cax6vj-whr.jpg"
-        alt="Camiseta Dior Amarilla"
-      />
-
-      <h3>Camiseta Dior Amarilla</h3>
-      <p class="precio">50.00€</p>
-
-      <button
-        aria-label="Añadir Camiseta Dior Amarilla al carrito"
-        (click)="anadir(
-          'Camiseta Dior Amarilla',
-          50.00,
-          'https://diorama.dam-broadcast.com/cdn-cgi/image/width=3000,format=auto/pm_11872_1238_1238598-dtr6cax6vj-whr.jpg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- TARJETA 5 -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Camiseta Navideña, precio 22.99 euros"
-    >
-      <img
-        src="https://jerseynavideno.com/cdn/shop/products/Camiseta-Navidena-Merry-Christmas-Pinguino.jpg?crop=region&crop_height=1000&crop_left=100&crop_top=0&crop_width=800&v=1725447491&width=1000"
-        alt="Camiseta Navideña"
-      />
-
-      <h3>Camiseta Navideña</h3>
-      <p class="precio">22.99€</p>
-
-      <button
-        aria-label="Añadir Camiseta Navideña al carrito"
-        (click)="anadir(
-          'Camiseta Navideña',
-          22.99,
-          'https://jerseynavideno.com/cdn/shop/products/Camiseta-Navidena-Merry-Christmas-Pinguino.jpg?crop=region&crop_height=1000&crop_left=100&crop_top=0&crop_width=800&v=1725447491&width=1000'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- TARJETA 6 -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Camiseta Torreznos, precio 30 euros"
-    >
-      <img
-        src="https://imgs.search.brave.com/d0nd5w76VKTMV-pmfKkVIVibNuFcLTL7VwrtlYLSxsw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zcnYu/bGF0b3N0YWRvcmEu/Y29tL2ltYWdlL2kt/bG92ZS10b3JyZXpu/b3MtLWlkOjQ3ODYx/MzRkLTAzNWYtNDM1/YS1hNTdkLTA5M2My/NjQ4YTk1ZTtzOkhf/QTE7YjpmMWYxZjE7/aDo1MjA7ZjpmO2k6/MTM1NjIzMTIyNDI3/MzMxMzU2MjMyMDE3/MDkyNjEuanBn"
-        alt="Camiseta Torreznos"
-      />
-
-      <h3>Camiseta Torreznos</h3>
-      <p class="precio">30.00€</p>
-
-      <button
-        aria-label="Añadir Camiseta Torreznos al carrito"
-        (click)="anadir(
-          'Camiseta Torreznos',
-          30.00,
-          'https://imgs.search.brave.com/d0nd5w76VKTMV-pmfKkVIVibNuFcLTL7VwrtlYLSxsw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zcnYu/bGF0b3N0YWRvcmEu/Y29tL2ltYWdlL2kt/bG92ZS10b3JyZXpu/b3MtLWlkOjQ3ODYx/MzRkLTAzNWYtNDM1/YS1hNTdkLTA5M2My/NjQ4YTk1ZTtzOkhf/QTE7YjpmMWYxZjE7/aDo1MjA7ZjpmO2k6/MTM1NjIzMTIyNDI3/MzMxMzU2MjMyMDE3/MDkyNjEuanBn'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-  </div>
+  </ul>
 </main>

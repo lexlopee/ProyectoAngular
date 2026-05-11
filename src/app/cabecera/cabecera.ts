@@ -1,20 +1,10 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CestaService } from '../services/cesta.service';
 import { CommonModule } from '@angular/common';
 import { UsuarioService } from '../services/usuario.service';
 import { BuscadorComponent } from '../pages/buscador/buscador';
 
-/**
- * Componente de cabecera de la aplicación.
- *
- * - Muestra el nombre del usuario logueado.
- * - Indica la cantidad de productos en la cesta.
- * - Escucha eventos globales para actualizar la información en tiempo real.
- * - Permite cerrar sesión desde la cabecera.
- *
- * @version 1.0.0
- */
 @Component({
   selector: 'app-cabecera',
   standalone: true,
@@ -22,65 +12,88 @@ import { BuscadorComponent } from '../pages/buscador/buscador';
   templateUrl: './cabecera.html',
   styleUrls: ['./cabecera.css'],
 })
-export class Cabecera implements AfterViewInit {
+export class Cabecera implements OnInit, OnDestroy {
 
-  /**
-   * Nombre del usuario logueado (o `null` si no hay sesión activa).
-   */
-  usuario: any = null;
+  private cestaService = inject(CestaService);
+  private usuarioService = inject(UsuarioService);
 
-  /**
-   * Cantidad de productos en la cesta.
-   */
+  usuario: string | null = null;
   cantidadCesta: number = 0;
 
-  /**
-   * Constructor del componente.
-   * @param router Router para gestionar navegación.
-   * @param cestaService Servicio de la cesta para obtener productos.
-   * @param usuarioService Servicio de usuario para gestionar sesión.
-   */
-  constructor(
-    private router: Router,
-    private cestaService: CestaService,
-    private usuarioService: UsuarioService
-  ) {}
+  private menuToggle!: HTMLElement;
+  private menuNav!: HTMLElement;
+  private clickFuera!: (e: MouseEvent) => void;
 
-  /**
-   * Hook del ciclo de vida de Angular.
-   * Se ejecuta después de que la vista está cargada.
-   * - Inicializa datos de usuario y cesta.
-   * - Escucha eventos globales para actualizar la cabecera.
-   */
- ngAfterViewInit(): void {
-  const toggle = document.querySelector('.menu-toggle') as HTMLElement;
-  const menu = document.querySelector('.nav-links') as HTMLElement;
+  ngOnInit(): void {
+    this.actualizarUsuarioYCesta();
 
-  toggle.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    window.addEventListener('actualizarCestaCabecera', (e: any) => {
+      this.cantidadCesta = e.detail;
+    });
 
-    toggle.setAttribute('aria-expanded', (!expanded).toString());
-    toggle.setAttribute('aria-pressed', (!expanded).toString());
+    window.addEventListener('usuarioLogueado', () => {
+      this.actualizarUsuarioYCesta();
+    });
 
-    menu.classList.toggle('show');
+    window.addEventListener('usuarioCerrado', () => {
+      this.usuario = null;
+      this.cantidadCesta = 0;
+    });
 
-    // Bloquear scroll en móvil
-    if (!expanded) {
-      document.body.classList.add('menu-open');
-    } else {
-      document.body.classList.remove('menu-open');
+    setTimeout(() => this.setupMenu(), 0);
+  }
+
+  ngOnDestroy(): void {
+    if (this.menuToggle) {
+      this.menuToggle.removeEventListener('click', this.toggleMenu.bind(this));
     }
-  });
+    document.removeEventListener('click', this.clickFuera);
+  }
 
-  this.actualizarUsuarioYCesta();
-}
+  private setupMenu(): void {
+    this.menuToggle = document.querySelector('.menu-toggle') as HTMLElement;
+    this.menuNav = document.querySelector('#menu-principal') as HTMLElement;
 
+    if (!this.menuToggle || !this.menuNav) return;
 
+    this.menuToggle.addEventListener('click', () => this.toggleMenu());
 
-  /**
-   * Obtiene el usuario actual y la cantidad de productos en la cesta al iniciar.
-   * Si existe una sesión previa, actualiza los valores en la cabecera.
-   */
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && this.menuNav.classList.contains('show')) {
+        this.cerrarMenu();
+        this.menuToggle.focus();
+      }
+    });
+
+    this.clickFuera = (e: MouseEvent) => {
+      if (!this.menuToggle.contains(e.target as Node) && !this.menuNav.contains(e.target as Node)) {
+        this.cerrarMenu();
+      }
+    };
+    document.addEventListener('click', this.clickFuera);
+
+    this.menuNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => this.cerrarMenu());
+    });
+  }
+
+  private toggleMenu(): void {
+    const expanded = this.menuToggle.getAttribute('aria-expanded') === 'true';
+    expanded ? this.cerrarMenu() : this.abrirMenu();
+  }
+
+  private abrirMenu(): void {
+    this.menuToggle.setAttribute('aria-expanded', 'true');
+    this.menuNav.classList.add('show');
+    document.body.classList.add('menu-open');
+  }
+
+  private cerrarMenu(): void {
+    this.menuToggle.setAttribute('aria-expanded', 'false');
+    this.menuNav.classList.remove('show');
+    document.body.classList.remove('menu-open');
+  }
+
   actualizarUsuarioYCesta(): void {
     const usuarioActual = this.usuarioService.getUsuarioActual();
     if (usuarioActual) {
@@ -89,19 +102,11 @@ export class Cabecera implements AfterViewInit {
     }
   }
 
-  /**
-   * Cierra la sesión del usuario actual.
-   * - Elimina la sesión guardada.
-   * - Lanza un evento global para actualizar otros componentes.
-   * - Muestra confirmación al usuario.
-   * - Redirige a la página de inicio.
-   */
   cerrarSesion(): void {
     this.usuarioService.logout();
+    this.usuario = null;
+    this.cantidadCesta = 0;
     window.dispatchEvent(new CustomEvent('usuarioCerrado'));
-    alert('Has cerrado sesión correctamente ✅');
     window.location.href = '/';
   }
-
 }
-

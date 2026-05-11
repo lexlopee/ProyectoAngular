@@ -1,1 +1,137 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===================================================
+   ESTILOS GLOBALES — FashionStore
+   Incluye: reset, variables, skip-link, focus, layout
+   =================================================== */
+
+/* IMPORTAR FUENTE */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* VARIABLES DE COLOR — cumplen WCAG AA (4.5:1 mínimo) */
+:root {
+  --color-primario:      #1a237e; /* Texto sobre blanco: 9.5:1 ✓ */
+  --color-primario-dark: #0d1b69;
+  --color-primario-light:#e8eaf6;
+  --color-texto:         #212121; /* Sobre blanco: 16.5:1 ✓ */
+  --color-texto-sec:     #555555; /* Sobre blanco: 7:1 ✓ */
+  --color-fondo:         #f5f5f5;
+  --color-blanco:        #ffffff;
+  --color-error:         #c62828; /* Sobre blanco: 5.9:1 ✓ */
+  --color-exito:         #2e7d32; /* Sobre blanco: 7.6:1 ✓ */
+  --color-acento:        #ffca28; /* Para focus rings */
+}
+
+/* BASE */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* SKIP LINK — accesibilidad teclado */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 12px 20px;
+  border-radius: 0 0 8px 0;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* FOCUS VISIBLE GLOBAL — WCAG 2.1 criterio 2.4.11 */
+*:focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 3px;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+/* TIPOGRAFÍA */
+h1 { font-size: 2rem;   font-weight: 700; line-height: 1.2; color: var(--color-texto); }
+h2 { font-size: 1.5rem; font-weight: 600; line-height: 1.3; color: var(--color-texto); }
+h3 { font-size: 1.2rem; font-weight: 600; line-height: 1.4; color: var(--color-texto); }
+
+p {
+  line-height: 1.7;
+  margin-bottom: 1em;
+  color: var(--color-texto);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ENLACES */
+a {
+  color: var(--color-primario);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--color-primario-dark);
+}
+
+/* IMÁGENES */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* LISTAS */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+/* TEXTO SOLO VISIBLE PARA LECTORES DE PANTALLA */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1rem;   }
+}

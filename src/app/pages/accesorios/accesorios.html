@@ -1,173 +1,120 @@
-<!-- Mensaje flotante accesible -->
-<div id="mensaje" class="mensaje" aria-live="assertive"></div>
+<div id="mensaje" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<main class="accesorios" role="main">
+<main class="page-container" role="main">
+
+  <nav class="breadcrumb" aria-label="Ubicación en el sitio">
+    <ol>
+      <li><a routerLink="/" aria-label="Ir al inicio">Inicio</a></li>
+      <li aria-hidden="true"> › </li>
+      <li aria-current="page">Accesorios</li>
+    </ol>
+  </nav>
 
   <h1>Accesorios</h1>
 
-  <div class="galeria" role="list">
+  <ul class="galeria" role="list" aria-label="Catálogo de accesorios">
 
-    <!-- 1. Gafas de sol -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Gafas de sol, precio 29.99 euros"
-    >
-      <img
-        src="https://www.hawkersco.com/on/demandware.static/-/Sites-Master-Catalog-Sunglasses/default/dw2a0c821b/images/large/HONR21BBTP_L.jpg"
-        alt="Gafas de sol"
-      />
-      <h3>Gafas de sol</h3>
-      <p class="precio">29.99€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Gafas de sol, 29,99 euros">
+        <img src="https://www.hawkersco.com/on/demandware.static/-/Sites-Master-Catalog-Sunglasses/default/dw2a0c821b/images/large/HONR21BBTP_L.jpg"
+          alt="Gafas de sol color marrón con montura redonda"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Gafas de sol</h2>
+          <p class="precio">29,99 €</p>
+          <button aria-label="Añadir Gafas de sol al carrito"
+            (click)="anadir('Gafas de sol', 29.99,
+            'https://www.hawkersco.com/on/demandware.static/-/Sites-Master-Catalog-Sunglasses/default/dw2a0c821b/images/large/HONR21BBTP_L.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Gafas de sol al carrito"
-        (click)="anadir(
-          'Gafas de sol',
-          29.99,
-          'https://www.hawkersco.com/on/demandware.static/-/Sites-Master-Catalog-Sunglasses/default/dw2a0c821b/images/large/HONR21BBTP_L.jpg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Gorra Azul, 19,99 euros">
+        <img src="https://i8.amplience.net/t/jpl/jdes_product_list?plu=jd_771795_al&qlt=85&qlt=92&w=320&h=320&v=1&fmt=auto"
+          alt="Gorra de béisbol color azul marino"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Gorra Azul</h2>
+          <p class="precio">19,99 €</p>
+          <button aria-label="Añadir Gorra Azul al carrito"
+            (click)="anadir('Gorra Azul', 19.99,
+            'https://i8.amplience.net/t/jpl/jdes_product_list?plu=jd_771795_al&qlt=85&qlt=92&w=320&h=320&v=1&fmt=auto')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 2. Gorra Azul -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Gorra Azul, precio 19.99 euros"
-    >
-      <img
-        src="https://i8.amplience.net/t/jpl/jdes_product_list?plu=jd_771795_al&qlt=85&qlt=92&w=320&h=320&v=1&fmt=auto"
-        alt="Gorra Azul"
-      />
-      <h3>Gorra Azul</h3>
-      <p class="precio">19.99€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Collar duo plata, 24,99 euros">
+        <img src="https://singularu.com/cdn/shop/products/WCHLS0A925P00XX_2_puesta_1e23626a-e76d-48d5-a222-eb7ecff3333b.jpg?v=1669027488&width=3000"
+          alt="Collar doble de plata de ley con diseño minimalista"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Collar duo plata</h2>
+          <p class="precio">24,99 €</p>
+          <button aria-label="Añadir Collar duo plata al carrito"
+            (click)="anadir('Collar duo plata', 24.99,
+            'https://singularu.com/cdn/shop/products/WCHLS0A925P00XX_2_puesta_1e23626a-e76d-48d5-a222-eb7ecff3333b.jpg?v=1669027488&width=3000')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Gorra Azul al carrito"
-        (click)="anadir(
-          'Gorra Azul',
-          19.99,
-          'https://i8.amplience.net/t/jpl/jdes_product_list?plu=jd_771795_al&qlt=85&qlt=92&w=320&h=320&v=1&fmt=auto'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Pulsera cuero, 5,99 euros">
+        <img src="https://static.zara.net/assets/public/f412/b1fc/d8d14f3ebe38/f53e8e48b72f/05717400800-e1/05717400800-e1.jpg?ts=1747994425924&w=352"
+          alt="Pulsera de cuero marrón trenzado"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Pulsera cuero</h2>
+          <p class="precio">5,99 €</p>
+          <button aria-label="Añadir Pulsera cuero al carrito"
+            (click)="anadir('Pulsera cuero', 5.99,
+            'https://static.zara.net/assets/public/f412/b1fc/d8d14f3ebe38/f53e8e48b72f/05717400800-e1/05717400800-e1.jpg?ts=1747994425924&w=352')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 3. Collar duo plata -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Collar duo plata, precio 24.99 euros"
-    >
-      <img
-        src="https://singularu.com/cdn/shop/products/WCHLS0A925P00XX_2_puesta_1e23626a-e76d-48d5-a222-eb7ecff3333b.jpg?v=1669027488&width=3000"
-        alt="Collar duo plata"
-      />
-      <h3>Collar duo plata</h3>
-      <p class="precio">24.99€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Pendientes de Novia, 25,99 euros">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT33wr3h_Wo3Yk8LeJAtM2pUrCVKgwyo-e79g&s"
+          alt="Pendientes elegantes de perla para novia"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Pendientes de Novia</h2>
+          <p class="precio">25,99 €</p>
+          <button aria-label="Añadir Pendientes de Novia al carrito"
+            (click)="anadir('Pendientes de Novia', 25.99,
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT33wr3h_Wo3Yk8LeJAtM2pUrCVKgwyo-e79g&s')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Collar duo plata al carrito"
-        (click)="anadir(
-          'Collar duo plata',
-          24.99,
-          'https://singularu.com/cdn/shop/products/WCHLS0A925P00XX_2_puesta_1e23626a-e76d-48d5-a222-eb7ecff3333b.jpg?v=1669027488&width=3000'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Sombrero Azul, 17,99 euros">
+        <img src="https://www.tuskamisetas.com/resources/images/046_69_250_m-2025_02.jpg"
+          alt="Sombrero de tela color azul con ala ancha"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Sombrero Azul</h2>
+          <p class="precio">17,99 €</p>
+          <button aria-label="Añadir Sombrero Azul al carrito"
+            (click)="anadir('Sombrero Azul', 17.99,
+            'https://www.tuskamisetas.com/resources/images/046_69_250_m-2025_02.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 4. Pulsera cuero -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Pulsera de cuero, precio 5.99 euros"
-    >
-      <img
-        src="https://static.zara.net/assets/public/f412/b1fc/d8d14f3ebe38/f53e8e48b72f/05717400800-e1/05717400800-e1.jpg?ts=1747994425924&w=352"
-        alt="Pulsera de cuero"
-      />
-      <h3>Pulsera cuero</h3>
-      <p class="precio">5.99€</p>
-
-      <button
-        aria-label="Añadir Pulsera cuero al carrito"
-        (click)="anadir(
-          'Pulsera cuero',
-          5.99,
-          'https://static.zara.net/assets/public/f412/b1fc/d8d14f3ebe38/f53e8e48b72f/05717400800-e1/05717400800-e1.jpg?ts=1747994425924&w=352'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- 5. Pendientes de novia -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Pendientes de novia, precio 25.99 euros"
-    >
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT33wr3h_Wo3Yk8LeJAtM2pUrCVKgwyo-e79g&s"
-        alt="Pendientes de novia"
-      />
-      <h3>Pendientes de Novia</h3>
-      <p class="precio">25.99€</p>
-
-      <button
-        aria-label="Añadir Pendientes de Novia al carrito"
-        (click)="anadir(
-          'Pendientes de Novia',
-          25.99,
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT33wr3h_Wo3Yk8LeJAtM2pUrCVKgwyo-e79g&s'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- 6. Sombrero Azul -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Sombrero Azul, precio 17.99 euros"
-    >
-      <img
-        src="https://www.tuskamisetas.com/resources/images/046_69_250_m-2025_02.jpg"
-        alt="Sombrero Azul"
-      />
-      <h3>Sombrero Azul</h3>
-      <p class="precio">17.99€</p>
-
-      <button
-        aria-label="Añadir Sombrero Azul al carrito"
-        (click)="anadir(
-          'Sombrero Azul',
-          17.99,
-          'https://www.tuskamisetas.com/resources/images/046_69_250_m-2025_02.jpg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-  </div>
+  </ul>
 </main>

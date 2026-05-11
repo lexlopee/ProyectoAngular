@@ -1,173 +1,120 @@
-<!-- Mensaje flotante accesible -->
-<div id="mensaje" class="mensaje" aria-live="assertive"></div>
+<div id="mensaje" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<main class="chaquetas" role="main">
+<main class="page-container" role="main">
+
+  <nav class="breadcrumb" aria-label="Ubicación en el sitio">
+    <ol>
+      <li><a routerLink="/" aria-label="Ir al inicio">Inicio</a></li>
+      <li aria-hidden="true"> › </li>
+      <li aria-current="page">Chaquetas</li>
+    </ol>
+  </nav>
 
   <h1>Chaquetas</h1>
 
-  <div class="galeria" role="list">
+  <ul class="galeria" role="list" aria-label="Catálogo de chaquetas">
 
-    <!-- 1. Chaqueta Azul Diablo North Face -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Chaqueta Azul Diablo North Face, precio 150 euros"
-    >
-      <img
-        src="https://www.botteroski.com/46890-medium_default/458336-chaqueta-de-plumas-the-north-face-diablo.jpg"
-        alt="Chaqueta Azul Diablo North Face"
-      />
-      <h3>Chaqueta Azul Diablo North Face</h3>
-      <p class="precio">150.00€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Chaqueta Azul Diablo North Face, 150 euros">
+        <img src="https://www.botteroski.com/46890-medium_default/458336-chaqueta-de-plumas-the-north-face-diablo.jpg"
+          alt="Chaqueta de plumas azul The North Face modelo Diablo"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Chaqueta Azul Diablo North Face</h2>
+          <p class="precio">150,00 €</p>
+          <button aria-label="Añadir Chaqueta Azul Diablo North Face al carrito"
+            (click)="anadir('Chaqueta Azul Diablo North Face', 150.00,
+            'https://www.botteroski.com/46890-medium_default/458336-chaqueta-de-plumas-the-north-face-diablo.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Chaqueta Azul Diablo North Face al carrito"
-        (click)="anadir(
-          'Chaqueta Azul Diablo North Face',
-          150.00,
-          'https://www.botteroski.com/46890-medium_default/458336-chaqueta-de-plumas-the-north-face-diablo.jpg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Chaqueta Roja Deportiva, 59,99 euros">
+        <img src="https://cdn.siroko.com/products/67c58e51dac0a/590/704/crop_center.jpg?v=1743160410"
+          alt="Chaqueta deportiva de color rojo con cremallera"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Chaqueta Roja Deportiva</h2>
+          <p class="precio">59,99 €</p>
+          <button aria-label="Añadir Chaqueta Roja Deportiva al carrito"
+            (click)="anadir('Chaqueta Roja Deportiva', 59.99,
+            'https://cdn.siroko.com/products/67c58e51dac0a/590/704/crop_center.jpg?v=1743160410')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 2. Chaqueta Roja Deportiva -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Chaqueta Roja Deportiva, precio 59.99 euros"
-    >
-      <img
-        src="https://cdn.siroko.com/products/67c58e51dac0a/590/704/crop_center.jpg?v=1743160410"
-        alt="Chaqueta Roja Deportiva"
-      />
-      <h3>Chaqueta Roja Deportiva</h3>
-      <p class="precio">59.99€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Chaqueta Cuero, 109,99 euros">
+        <img src="https://store.hondacanarias.com/media/catalog/product/cache/2d3e303121a652959edd5ff74af5177b/2/3/233-7520022-54_1.jpg"
+          alt="Chaqueta de cuero negro estilo biker"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Chaqueta Cuero</h2>
+          <p class="precio">109,99 €</p>
+          <button aria-label="Añadir Chaqueta Cuero al carrito"
+            (click)="anadir('Chaqueta Cuero', 109.99,
+            'https://store.hondacanarias.com/media/catalog/product/cache/2d3e303121a652959edd5ff74af5177b/2/3/233-7520022-54_1.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Chaqueta Roja Deportiva al carrito"
-        (click)="anadir(
-          'Chaqueta Roja Deportiva',
-          59.99,
-          'https://cdn.siroko.com/products/67c58e51dac0a/590/704/crop_center.jpg?v=1743160410'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Abrigo Pelo Largo, 79,99 euros">
+        <img src="https://www.bolf.es/hpeciai/d7cdd685aebdd46e3fcfc158d18a6b9e/spa_pl_Abrigo-forrado-largo-de-invierno-para-mujer-camel-Bolf-AN105-87340_16.jpg"
+          alt="Abrigo largo de invierno color camel con pelo sintético"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Abrigo Pelo Largo</h2>
+          <p class="precio">79,99 €</p>
+          <button aria-label="Añadir Abrigo Pelo Largo al carrito"
+            (click)="anadir('Abrigo Pelo Largo', 79.99,
+            'https://www.bolf.es/hpeciai/d7cdd685aebdd46e3fcfc158d18a6b9e/spa_pl_Abrigo-forrado-largo-de-invierno-para-mujer-camel-Bolf-AN105-87340_16.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 3. Chaqueta Cuero -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Chaqueta de cuero, precio 109.99 euros"
-    >
-      <img
-        src="https://store.hondacanarias.com/media/catalog/product/cache/2d3e303121a652959edd5ff74af5177b/2/3/233-7520022-54_1.jpg"
-        alt="Chaqueta de cuero"
-      />
-      <h3>Chaqueta Cuero</h3>
-      <p class="precio">109.99€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Chaqueta Elegante Azul, 85 euros">
+        <img src="https://delaespriellastyle.com/media/catalog/product/cache/7a3ea6ca3d1f7e49ca627023822d1a6b/f/a/fa070010-1_1.jpg"
+          alt="Chaqueta elegante de color azul para ocasiones formales"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Chaqueta Elegante Azul</h2>
+          <p class="precio">85,00 €</p>
+          <button aria-label="Añadir Chaqueta Elegante Azul al carrito"
+            (click)="anadir('Chaqueta Elegante Azul', 85.00,
+            'https://delaespriellastyle.com/media/catalog/product/cache/7a3ea6ca3d1f7e49ca627023822d1a6b/f/a/fa070010-1_1.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Chaqueta Cuero al carrito"
-        (click)="anadir(
-          'Chaqueta Cuero',
-          109.99,
-          'https://store.hondacanarias.com/media/catalog/product/cache/2d3e303121a652959edd5ff74af5177b/2/3/233-7520022-54_1.jpg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Chaqueta Invierno, 40 euros">
+        <img src="https://pix.bonprix.es/imgc/0/0/2/5/1/2/1/2/4/5/_235/25121245/chaqueta-de-invierno-con-capucha-y-detalles-de-piel-sintetica.jpg"
+          alt="Chaqueta de invierno con capucha y detalles de piel sintética"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Chaqueta Invierno</h2>
+          <p class="precio">40,00 €</p>
+          <button aria-label="Añadir Chaqueta Invierno al carrito"
+            (click)="anadir('Chaqueta Invierno', 40.00,
+            'https://pix.bonprix.es/imgc/0/0/2/5/1/2/1/2/4/5/_235/25121245/chaqueta-de-invierno-con-capucha-y-detalles-de-piel-sintetica.jpg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 4. Abrigo Pelo Largo -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Abrigo de pelo largo, precio 79.99 euros"
-    >
-      <img
-        src="https://www.bolf.es/hpeciai/d7cdd685aebdd46e3fcfc158d18a6b9e/spa_pl_Abrigo-forrado-largo-de-invierno-para-mujer-camel-Bolf-AN105-87340_16.jpg"
-        alt="Abrigo de pelo largo"
-      />
-      <h3>Abrigo Pelo Largo</h3>
-      <p class="precio">79.99€</p>
-
-      <button
-        aria-label="Añadir Abrigo Pelo Largo al carrito"
-        (click)="anadir(
-          'Abrigo Pelo Largo',
-          79.99,
-          'https://www.bolf.es/hpeciai/d7cdd685aebdd46e3fcfc158d18a6b9e/spa_pl_Abrigo-forrado-largo-de-invierno-para-mujer-camel-Bolf-AN105-87340_16.jpg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- 5. Chaqueta Elegante Azul -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Chaqueta elegante azul, precio 85 euros"
-    >
-      <img
-        src="https://delaespriellastyle.com/media/catalog/product/cache/7a3ea6ca3d1f7e49ca627023822d1a6b/f/a/fa070010-1_1.jpg"
-        alt="Chaqueta elegante azul"
-      />
-      <h3>Chaqueta Elegante Azul</h3>
-      <p class="precio">85.00€</p>
-
-      <button
-        aria-label="Añadir Chaqueta Elegante Azul al carrito"
-        (click)="anadir(
-          'Chaqueta Elegante Azul',
-          85.00,
-          'https://delaespriellastyle.com/media/catalog/product/cache/7a3ea6ca3d1f7e49ca627023822d1a6b/f/a/fa070010-1_1.jpg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- 6. Chaqueta Invierno -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Chaqueta de invierno con capucha, precio 40 euros"
-    >
-      <img
-        src="https://pix.bonprix.es/imgc/0/0/2/5/1/2/1/2/4/5/_235/25121245/chaqueta-de-invierno-con-capucha-y-detalles-de-piel-sintetica.jpg"
-        alt="Chaqueta de invierno con capucha"
-      />
-      <h3>Chaqueta Invierno</h3>
-      <p class="precio">40.00€</p>
-
-      <button
-        aria-label="Añadir Chaqueta Invierno al carrito"
-        (click)="anadir(
-          'Chaqueta Invierno',
-          40.00,
-          'https://pix.bonprix.es/imgc/0/0/2/5/1/2/1/2/4/5/_235/25121245/chaqueta-de-invierno-con-capucha-y-detalles-de-piel-sintetica.jpg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-  </div>
+  </ul>
 </main>

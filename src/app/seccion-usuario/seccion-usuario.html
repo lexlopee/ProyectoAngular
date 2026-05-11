@@ -1,105 +1,138 @@
-<main class="login-container" role="main">
+<main class="login-container" role="main" aria-label="Sección de usuario">
 
   <div class="login-card">
 
     <!-- Pestañas accesibles -->
-    <div class="tabs" role="tablist">
+    <div class="tabs" role="tablist" aria-label="Opciones de acceso">
 
-      <button 
-        class="tab-button active" 
+      <button
+        class="tab-button active"
         role="tab"
         aria-selected="true"
         aria-controls="loginForm"
         id="tab-login"
-        data-tab="login">
-        Iniciar Sesión
+        data-tab="login"
+        type="button">
+        Iniciar sesión
       </button>
 
-      <button 
-        class="tab-button" 
+      <button
+        class="tab-button"
         role="tab"
         aria-selected="false"
         aria-controls="registerForm"
         id="tab-register"
-        data-tab="register">
+        data-tab="register"
+        type="button">
         Registrarse
       </button>
 
     </div>
 
     <!-- FORMULARIO LOGIN -->
-    <form 
-      class="login-form active" 
+    <form
+      class="login-form active"
       id="loginForm"
       role="tabpanel"
-      aria-labelledby="tab-login">
+      aria-labelledby="tab-login"
+      novalidate>
 
-      <h3>Bienvenido de nuevo</h3>
+      <h2>Bienvenido de nuevo</h2>
+
+      <!-- Zona de error global -->
+      <div id="login-error" class="error-global" role="alert" aria-live="assertive" style="display:none;"></div>
 
       <div class="form-group">
-        <label for="loginUsuario">Usuario o Email</label>
+        <label for="loginUsuario">
+          Email o usuario
+          <span class="obligatorio" aria-label="campo obligatorio">*</span>
+        </label>
         <input
           type="text"
           id="loginUsuario"
           class="form-input"
-          placeholder="Ingresa tu usuario o email"
+          placeholder="ejemplo@correo.com"
           autocomplete="username"
+          aria-required="true"
+          aria-describedby="loginUsuario-error"
         >
+        <span id="loginUsuario-error" class="error-campo" role="alert" aria-live="polite"></span>
       </div>
 
       <div class="form-group">
-        <label for="loginClave">Contraseña</label>
-        <input
-          type="password"
-          id="loginClave"
-          class="form-input"
-          placeholder="Ingresa tu contraseña"
-          autocomplete="current-password"
-        >
+        <label for="loginClave">
+          Contraseña
+          <span class="obligatorio" aria-label="campo obligatorio">*</span>
+        </label>
+        <div class="input-password">
+          <input
+            type="password"
+            id="loginClave"
+            class="form-input"
+            placeholder="Tu contraseña"
+            autocomplete="current-password"
+            aria-required="true"
+            aria-describedby="loginClave-error"
+          >
+          <button type="button" class="btn-ver-password" aria-label="Mostrar contraseña" data-target="loginClave">
+            👁
+          </button>
+        </div>
+        <span id="loginClave-error" class="error-campo" role="alert" aria-live="polite"></span>
       </div>
 
       <div class="form-options">
-
         <label class="checkbox-label" for="recordarLogin">
           <input type="checkbox" id="recordarLogin">
           Recordar sesión
         </label>
-
-        <a routerLink="/recuperar" class="forgot-link">
+        <a routerLink="/recuperar" class="forgot-link" aria-label="Recuperar contraseña olvidada">
           ¿Olvidaste tu contraseña?
         </a>
-
       </div>
 
-      <button type="submit" class="btn btn-primary btn-full">
-        Ingresar
+      <button type="submit" class="btn btn-primary btn-full" aria-label="Iniciar sesión con tus credenciales">
+        Iniciar sesión
       </button>
 
     </form>
 
     <!-- FORMULARIO REGISTRO -->
-    <form 
-      class="login-form" 
+    <form
+      class="login-form"
       id="registerForm"
       role="tabpanel"
-      aria-labelledby="tab-register">
+      aria-labelledby="tab-register"
+      hidden
+      novalidate>
 
-      <h3>Crear nueva cuenta</h3>
+      <h2>Crear nueva cuenta</h2>
+
+      <!-- Zona de error global -->
+      <div id="register-error" class="error-global" role="alert" aria-live="assertive" style="display:none;"></div>
 
       <div class="form-row">
         <div class="form-group">
-          <label for="regNombre">Nombre</label>
+          <label for="regNombre">
+            Nombre
+            <span class="obligatorio" aria-label="campo obligatorio">*</span>
+          </label>
           <input
             type="text"
             id="regNombre"
             class="form-input"
             placeholder="Tu nombre"
             autocomplete="given-name"
+            aria-required="true"
+            aria-describedby="regNombre-error"
           >
+          <span id="regNombre-error" class="error-campo" role="alert" aria-live="polite"></span>
         </div>
 
         <div class="form-group">
-          <label for="regApellido">Apellido</label>
+          <label for="regApellido">
+            Apellido
+          </label>
           <input
             type="text"
             id="regApellido"
@@ -111,56 +144,103 @@
       </div>
 
       <div class="form-group">
-        <label for="regEmail">Email</label>
+        <label for="regEmail">
+          Email
+          <span class="obligatorio" aria-label="campo obligatorio">*</span>
+        </label>
         <input
           type="email"
           id="regEmail"
           class="form-input"
           placeholder="tu@email.com"
           autocomplete="email"
+          aria-required="true"
+          aria-describedby="regEmail-error"
         >
+        <span id="regEmail-error" class="error-campo" role="alert" aria-live="polite"></span>
       </div>
 
       <div class="form-group">
-        <label for="regUsuario">Usuario</label>
+        <label for="regUsuario">
+          Nombre de usuario
+          <span class="obligatorio" aria-label="campo obligatorio">*</span>
+        </label>
         <input
           type="text"
           id="regUsuario"
           class="form-input"
           placeholder="Elige un nombre de usuario"
           autocomplete="username"
+          aria-required="true"
+          aria-describedby="regUsuario-error"
         >
+        <span id="regUsuario-error" class="error-campo" role="alert" aria-live="polite"></span>
       </div>
 
       <div class="form-group">
-        <label for="regClave">Contraseña</label>
-        <input
-          type="password"
-          id="regClave"
-          class="form-input"
-          placeholder="Crea una contraseña segura"
-          autocomplete="new-password"
-        >
+        <label for="regClave">
+          Contraseña
+          <span class="obligatorio" aria-label="campo obligatorio">*</span>
+        </label>
+        <div class="input-password">
+          <input
+            type="password"
+            id="regClave"
+            class="form-input"
+            placeholder="Mínimo 8 caracteres"
+            autocomplete="new-password"
+            aria-required="true"
+            aria-describedby="regClave-error regClave-hint"
+          >
+          <button type="button" class="btn-ver-password" aria-label="Mostrar contraseña" data-target="regClave">
+            👁
+          </button>
+        </div>
+        <span id="regClave-hint" class="campo-hint">Mínimo 8 caracteres, una mayúscula y un número</span>
+        <span id="regClave-error" class="error-campo" role="alert" aria-live="polite"></span>
       </div>
 
       <div class="form-group">
-        <label for="regConfirmarClave">Confirmar Contraseña</label>
-        <input
-          type="password"
-          id="regConfirmarClave"
-          class="form-input"
-          placeholder="Repite tu contraseña"
-          autocomplete="new-password"
-        >
+        <label for="regConfirmarClave">
+          Confirmar contraseña
+          <span class="obligatorio" aria-label="campo obligatorio">*</span>
+        </label>
+        <div class="input-password">
+          <input
+            type="password"
+            id="regConfirmarClave"
+            class="form-input"
+            placeholder="Repite tu contraseña"
+            autocomplete="new-password"
+            aria-required="true"
+            aria-describedby="regConfirmarClave-error"
+          >
+          <button type="button" class="btn-ver-password" aria-label="Mostrar confirmación de contraseña" data-target="regConfirmarClave">
+            👁
+          </button>
+        </div>
+        <span id="regConfirmarClave-error" class="error-campo" role="alert" aria-live="polite"></span>
       </div>
 
-      <label class="checkbox-label" for="aceptarTerminos">
-        <input type="checkbox" id="aceptarTerminos">
-        Acepto los términos y condiciones
-      </label>
+      <div class="form-group">
+        <label class="checkbox-label" for="aceptarTerminos">
+          <input
+            type="checkbox"
+            id="aceptarTerminos"
+            aria-required="true"
+            aria-describedby="terminos-error">
+          Acepto los <a href="#" aria-label="Leer términos y condiciones">términos y condiciones</a>
+          <span class="obligatorio" aria-label="campo obligatorio">*</span>
+        </label>
+        <span id="terminos-error" class="error-campo" role="alert" aria-live="polite"></span>
+      </div>
 
-      <button type="submit" class="btn btn-primary btn-full">
-        Crear Cuenta
+      <p class="campos-obligatorios">
+        <span class="obligatorio">*</span> Campos obligatorios
+      </p>
+
+      <button type="submit" class="btn btn-primary btn-full" aria-label="Crear nueva cuenta con los datos introducidos">
+        Crear cuenta
       </button>
 
     </form>

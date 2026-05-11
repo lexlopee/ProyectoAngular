@@ -1,178 +1,198 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+/* PIE DE PÁGINA — FashionStore */
 
-* {
-  font-family: 'Lato', sans-serif;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-}
-
-.main-content {
-  flex: 1;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.main-content h1 {
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.main-content hr {
-  margin: 2rem 0;
-  border: none;
-  height: 2px;
-  background-color: #ddd;
-}
-
-.main-content h2 {
-  margin: 1.5rem 0 1rem;
-  color: #444;
-}
-
-.main-content ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.main-content li {
-  margin-bottom: 0.5rem;
-}
-
-/* FOOTER */
 .footer {
-  background: linear-gradient(135deg, #444, #222);
-  color: #f0f0f0;
-  padding: 2rem 1rem;
+  background-color: #1a1e2b; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro — ratio sobre fondo oscuro 11:1 ✓ */
+  padding: 3rem 0 0 0;
   margin-top: auto;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+  font-family: 'Poppins', sans-serif;
 }
 
+/* Contenedor en grid de 4 columnas */
 .footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
-.footer-section {
-  flex: 1 1 200px;
-  min-width: 200px;
-}
-
-.footer-section h3 {
+/* Sección individual */
+.footer-section h2 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  color: #fff;
-  font-size: 1.3rem;
-  border-bottom: 2px solid #666;
   padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3949ab;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
+/* Texto descriptivo */
+.footer-section p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #b0b3c5; /* Ratio sobre #1a1e2b: 5.4:1 ✓ */
+  margin-bottom: 0.5rem;
+}
+
+/* Listas */
 .footer-section ul {
-  list-style-type: none;
-  margin-left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-section li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
+/* Enlaces del pie */
 .footer-section a {
-  color: #bbb;
+  color: #b0b3c5;
   text-decoration: none;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  display: inline-block;
+  padding: 4px 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
 }
 
 .footer-section a:hover {
-  color: #fff;
-  text-shadow: 0 0 5px #fff;
-}
-
-/* Redes sociales con estilo circular */
-.social-links a {
-  display: inline-block;
-  margin-right: 0.5rem;
-  width: 35px;
-  height: 35px;
-  background-color: #666;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 35px;
-  color: #fff;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.social-links a:hover {
-  background-color: #fff;
-  color: #222;
-  transform: scale(1.1);
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 /* Información de contacto */
-.contact-info p {
-  margin-bottom: 0.5rem;
-  color: #ccc;
-}
-
-/* Formulario de suscripción */
-.subscription-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.contact-info {
   margin-top: 1rem;
 }
 
-.subscription-form input {
-  flex: 1;
-  min-width: 150px;
-  padding: 0.5rem;
-  border: 1px solid #777;
-  border-radius: 4px;
-  background-color: #333;
-  color: #fff;
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.subscription-form input::placeholder {
-  color: #aaa;
+.contact-info a {
+  color: #b0b3c5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  min-height: auto !important;
 }
 
-.subscription-form button {
-  padding: 0.5rem 1rem;
-  background-color: #555;
-  color: #fff;
+.contact-info a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Redes sociales */
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+}
+
+/* BARRA INFERIOR */
+.footer-bottom {
+  background-color: #0f1219;
+  padding: 1.2rem 2rem;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.footer-bottom-left p {
+  color: #8f94b0; /* Ratio sobre #0f1219: 4.8:1 ✓ */
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Lista de enlaces legales */
+.footer-legal {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-legal a {
+  color: #b0b3c5;
+  text-decoration: none;
+  font-size: 0.85rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.footer-legal a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* BOTÓN VOLVER ARRIBA */
+.btn-volver-arriba {
+  background: #3949ab;
+  color: #ffffff; /* Ratio 6.5:1 ✓ */
   border: none;
-  border-radius: 4px;
+  padding: 10px 16px;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
 
-.subscription-form button:hover {
-  background-color: #888;
-  transform: translateY(-2px);
+.btn-volver-arriba:hover {
+  background: #283593;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* RESPONSIVE */
+@media (max-width: 900px) {
   .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-section a {
+    justify-content: center;
+  }
+
+  .contact-info p {
+    justify-content: center;
+  }
+
+  .footer-bottom {
     flex-direction: column;
     text-align: center;
   }
-  .footer-section {
-    flex: 1 1 100%;
-    width: 100%;
+
+  .footer-legal {
+    justify-content: center;
   }
-  .social-links a {
-    margin: 0.3rem;
+
+  .footer-section h2 {
+    text-align: center;
   }
 }

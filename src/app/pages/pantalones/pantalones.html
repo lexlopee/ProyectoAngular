@@ -1,173 +1,120 @@
-<!-- Mensaje flotante accesible -->
-<div id="mensaje" class="mensaje" aria-live="assertive"></div>
+<div id="mensaje" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<main class="pantalones" role="main">
+<main class="page-container" role="main">
+
+  <nav class="breadcrumb" aria-label="Ubicación en el sitio">
+    <ol>
+      <li><a routerLink="/" aria-label="Ir al inicio">Inicio</a></li>
+      <li aria-hidden="true"> › </li>
+      <li aria-current="page">Pantalones</li>
+    </ol>
+  </nav>
 
   <h1>Pantalones</h1>
 
-  <div class="galeria" role="list">
+  <ul class="galeria" role="list" aria-label="Catálogo de pantalones">
 
-    <!-- 1. Pantalón Vaquero Baggy -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Pantalón Vaquero Baggy, precio 39.99 euros"
-    >
-      <img
-        src="https://bustinsjeans.com/cdn/shop/files/BI2A5910_1f0d00ca-839a-4c78-bafc-64e11009eaa1_800x.jpg?v=1736346832"
-        alt="Pantalón Vaquero Baggy"
-      />
-      <h3>Pantalón Vaquero Baggy</h3>
-      <p class="precio">39.99€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Pantalón Vaquero Baggy, 39,99 euros">
+        <img src="https://bustinsjeans.com/cdn/shop/files/BI2A5910_1f0d00ca-839a-4c78-bafc-64e11009eaa1_800x.jpg?v=1736346832"
+          alt="Pantalón vaquero baggy de corte ancho en color azul denim"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Pantalón Vaquero Baggy</h2>
+          <p class="precio">39,99 €</p>
+          <button aria-label="Añadir Pantalón Vaquero Baggy al carrito"
+            (click)="anadir('Pantalón Vaquero Baggy', 39.99,
+            'https://bustinsjeans.com/cdn/shop/files/BI2A5910_1f0d00ca-839a-4c78-bafc-64e11009eaa1_800x.jpg?v=1736346832')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Pantalón Vaquero Baggy al carrito"
-        (click)="anadir(
-          'Pantalón Vaquero Baggy',
-          39.99,
-          'https://bustinsjeans.com/cdn/shop/files/BI2A5910_1f0d00ca-839a-4c78-bafc-64e11009eaa1_800x.jpg?v=1736346832'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Pantalón Negro Chándal, 32,50 euros">
+        <img src="https://www.errea.com/media/catalog/product/R/2/R27P0L0Z.jpg?optimize=low&fit=bounds&height=&width=&canvas=:"
+          alt="Pantalón de chándal color negro con rayas laterales"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Pantalón Negro Chándal</h2>
+          <p class="precio">32,50 €</p>
+          <button aria-label="Añadir Pantalón Negro Chándal al carrito"
+            (click)="anadir('Pantalón Negro Chandal', 32.50,
+            'https://www.errea.com/media/catalog/product/R/2/R27P0L0Z.jpg?optimize=low&fit=bounds&height=&width=&canvas=:')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 2. Pantalón Negro Chandal -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Pantalón Negro Chandal, precio 32.50 euros"
-    >
-      <img
-        src="https://www.errea.com/media/catalog/product/R/2/R27P0L0Z.jpg?optimize=low&fit=bounds&height=&width=&canvas=:"
-        alt="Pantalón Negro Chandal"
-      />
-      <h3>Pantalón Negro Chandal</h3>
-      <p class="precio">32.50€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Pantalón corto vaquero, 27,49 euros">
+        <img src="https://img.joomcdn.net/7ca3901904a6a8bfd5cdba28899b5de11ce8fd9c_original.jpeg"
+          alt="Pantalón corto vaquero deshilachado en azul claro"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Pantalón corto vaquero</h2>
+          <p class="precio">27,49 €</p>
+          <button aria-label="Añadir Pantalón corto vaquero al carrito"
+            (click)="anadir('Pantalón corto vaquero', 27.49,
+            'https://img.joomcdn.net/7ca3901904a6a8bfd5cdba28899b5de11ce8fd9c_original.jpeg')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Pantalón Negro Chandal al carrito"
-        (click)="anadir(
-          'Pantalón Negro Chandal',
-          32.50,
-          'https://www.errea.com/media/catalog/product/R/2/R27P0L0Z.jpg?optimize=low&fit=bounds&height=&width=&canvas=:'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Pantalones de pierna ancha negros, 30,99 euros">
+        <img src="https://imgs.search.brave.com/O5eDtfIl5PJfpVIkJ96VwCisVzVYRDqUy5sxlHr9Nr0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcw/MS56dGF0Lm5ldC9h/cnRpY2xlL3NwcC1t/ZWRpYS1wMS9lMmMz/NTRjYTYzN2Y0Njg4/ODEyMjBiMzdmZTMx/YmMyMi9kNmYyYjZh/MGZmODA0YTIzOWQ5/ZTgwZmVhNjIzMDYx/Yi5qcGc_aW13aWR0/aD0zMDA"
+          alt="Pantalones de pierna ancha color negro"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Pantalones de pierna ancha negros</h2>
+          <p class="precio">30,99 €</p>
+          <button aria-label="Añadir Pantalones de pierna ancha negros al carrito"
+            (click)="anadir('Pantalones de pierna ancha negros', 30.99,
+            'https://imgs.search.brave.com/O5eDtfIl5PJfpVIkJ96VwCisVzVYRDqUy5sxlHr9Nr0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcw/MS56dGF0Lm5ldC9h/cnRpY2xlL3NwcC1t/ZWRpYS1wMS9lMmMz/NTRjYTYzN2Y0Njg4/ODEyMjBiMzdmZTMx/YmMyMi9kNmYyYjZh/MGZmODA0YTIzOWQ5/ZTgwZmVhNjIzMDYx/Yi5qcGc_aW13aWR0/aD0zMDA')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 3. Pantalón corto vaquero -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Pantalón corto vaquero, precio 27.49 euros"
-    >
-      <img
-        src="https://img.joomcdn.net/7ca3901904a6a8bfd5cdba28899b5de11ce8fd9c_original.jpeg"
-        alt="Pantalón corto vaquero"
-      />
-      <h3>Pantalón corto vaquero</h3>
-      <p class="precio">27.49€</p>
+    <li class="tarjeta" role="listitem">
+      <article aria-label="Pantalones deportivos aurora coffee, 54,95 euros">
+        <img src="https://img01.ztat.net/article/spp-media-p1/817443d79e234846974acb9bf42b3168/b942bd9fcde0408b8a0a5d59b231bc2a.jpg?imwidth=300"
+          alt="Pantalones deportivos en tono aurora coffee beige oscuro"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>Pantalones deportivos - aurora coffee</h2>
+          <p class="precio">54,95 €</p>
+          <button aria-label="Añadir Pantalones deportivos aurora coffee al carrito"
+            (click)="anadir('Pantalones deportivos - aurora coffee', 54.95,
+            'https://img01.ztat.net/article/spp-media-p1/817443d79e234846974acb9bf42b3168/b942bd9fcde0408b8a0a5d59b231bc2a.jpg?imwidth=300')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-      <button
-        aria-label="Añadir Pantalón corto vaquero al carrito"
-        (click)="anadir(
-          'Pantalón corto vaquero',
-          27.49,
-          'https://img.joomcdn.net/7ca3901904a6a8bfd5cdba28899b5de11ce8fd9c_original.jpeg'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div> <!-- ← ESTE CIERRE FALTABA Y ERA EL ERROR -->
+    <li class="tarjeta" role="listitem">
+      <article aria-label="578 BAGGY Vaqueros baggy rinse crusader, 89,95 euros">
+        <img src="https://img01.ztat.net/article/spp-media-p1/f3319bb217374109acbf9974233151d7/ef5b95ef2b6d473d92acd093246a09de.jpg?imwidth=300"
+          alt="Vaqueros baggy estilo 578 en color rinse crusader azul oscuro"
+          loading="lazy" width="260" height="260"/>
+        <div class="tarjeta-info">
+          <h2>578® BAGGY - Vaqueros baggy - rinse crusader</h2>
+          <p class="precio">89,95 €</p>
+          <button aria-label="Añadir 578 BAGGY Vaqueros al carrito"
+            (click)="anadir('578® BAGGY - Vaqueros baggy - rinse crusader', 89.95,
+            'https://img01.ztat.net/article/spp-media-p1/f3319bb217374109acbf9974233151d7/ef5b95ef2b6d473d92acd093246a09de.jpg?imwidth=300')">
+            Añadir al carrito
+          </button>
+        </div>
+      </article>
+    </li>
 
-    <!-- 4. Pantalones de pierna ancha negros -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Pantalones de pierna ancha negros, precio 30.99 euros"
-    >
-      <img
-        src="https://imgs.search.brave.com/O5eDtfIl5PJfpVIkJ96VwCisVzVYRDqUy5sxlHr9Nr0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcw/MS56dGF0Lm5ldC9h/cnRpY2xlL3NwcC1t/ZWRpYS1wMS9lMmMz/NTRjYTYzN2Y0Njg4/ODEyMjBiMzdmZTMx/YmMyMi9kNmYyYjZh/MGZmODA0YTIzOWQ5/ZTgwZmVhNjIzMDYx/Yi5qcGc_aW13aWR0/aD0zMDA"
-        alt="Pantalones de pierna ancha negros"
-      />
-      <h3>Pantalones de pierna ancha negros</h3>
-      <p class="precio">30.99€</p>
-
-      <button
-        aria-label="Añadir Pantalones de pierna ancha negros al carrito"
-        (click)="anadir(
-          'Pantalones de pierna ancha negros',
-          30.99,
-          'https://imgs.search.brave.com/O5eDtfIl5PJfpVIkJ96VwCisVzVYRDqUy5sxlHr9Nr0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcw/MS56dGF0Lm5ldC9h/cnRpY2xlL3NwcC1t/ZWRpYS1wMS9lMmMz/NTRjYTYzN2Y0Njg4/ODEyMjBiMzdmZTMx/YmMyMi9kNmYyYjZh/MGZmODA0YTIzOWQ5/ZTgwZmVhNjIzMDYx/Yi5qcGc_aW13aWR0/aD0zMDA'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- 5. Pantalones deportivos aurora coffee -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="Pantalones deportivos aurora coffee, precio 54.95 euros"
-    >
-      <img
-        src="https://img01.ztat.net/article/spp-media-p1/817443d79e234846974acb9bf42b3168/b942bd9fcde0408b8a0a5d59b231bc2a.jpg?imwidth=300"
-        alt="Pantalones deportivos aurora coffee"
-      />
-      <h3>Pantalones deportivos - aurora coffee</h3>
-      <p class="precio">54.95€</p>
-
-      <button
-        aria-label="Añadir Pantalones deportivos aurora coffee al carrito"
-        (click)="anadir(
-          'Pantalones deportivos - aurora coffee',
-          54.95,
-          'https://img01.ztat.net/article/spp-media-p1/817443d79e234846974acb9bf42b3168/b942bd9fcde0408b8a0a5d59b231bc2a.jpg?imwidth=300'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-    <!-- 6. 578® BAGGY -->
-    <div 
-      class="tarjeta"
-      role="listitem"
-      role="article"
-      tabindex="0"
-      aria-label="578 BAGGY Vaqueros baggy rinse crusader, precio 89.95 euros"
-    >
-      <img
-        src="https://img01.ztat.net/article/spp-media-p1/f3319bb217374109acbf9974233151d7/ef5b95ef2b6d473d92acd093246a09de.jpg?imwidth=300"
-        alt="578 BAGGY Vaqueros baggy rinse crusader"
-      />
-      <h3>578® BAGGY - Vaqueros baggy - rinse crusader</h3>
-      <p class="precio">89.95€</p>
-
-      <button
-        aria-label="Añadir 578 BAGGY Vaqueros baggy rinse crusader al carrito"
-        (click)="anadir(
-          '578® BAGGY - Vaqueros baggy - rinse crusader',
-          89.95,
-          'https://img01.ztat.net/article/spp-media-p1/f3319bb217374109acbf9974233151d7/ef5b95ef2b6d473d92acd093246a09de.jpg?imwidth=300'
-        )"
-      >
-        Añadir al carrito
-      </button>
-    </div>
-
-  </div>
+  </ul>
 </main>

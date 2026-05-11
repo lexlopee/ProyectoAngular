@@ -1,73 +1,114 @@
-/* Ocultar visualmente pero accesible para lectores */
-.visually-hidden {
+.sr-only {
   position: absolute;
-  left: -9999px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
 
-/* Contenedor */
 .buscador-container {
   position: relative;
   display: inline-block;
-  width: 100%;
 }
 
-/* Input más grande y accesible */
+/* Input compacto para la cabecera */
 .buscador-container input {
-  width: 500px;
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #4deeee;
+  width: 180px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  border: 2px solid #7986cb;
   border-radius: 6px;
+  min-height: 40px;
+  background: #ffffff;
+  color: #212121;
+  transition: border-color 0.2s ease, width 0.2s ease;
 }
 
-/* Resultados adaptados al ancho del input */
+/* Se expande al enfocar */
+.buscador-container input:focus {
+  outline: none;
+  border-color: #ffca28;
+  box-shadow: 0 0 0 3px rgba(255,202,40,0.35);
+  width: 220px;
+}
+
+.buscador-container input::placeholder {
+  color: #757575;
+  font-size: 0.82rem;
+}
+
+/* Resultados dropdown */
 .resultados-busqueda {
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: #2235df;
-  border: 1px solid #4deeee;
-  max-height: 300px;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 300px;
+  background: #1a237e;
+  border: 2px solid #7986cb;
+  border-radius: 8px;
+  max-height: 320px;
   overflow-y: auto;
-  z-index: 1000;
-  border-radius: 6px;
+  z-index: 9999;
+  list-style: none;
+  padding: 0.25rem 0;
+  margin: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
-/* Cada resultado */
 .producto-mini {
   display: flex;
   align-items: center;
-  padding: 10px;
+  gap: 0.75rem;
+  padding: 10px 12px;
   cursor: pointer;
-  border-bottom: 1px solid #4deeee;
+  border-bottom: 1px solid #3949ab;
+  transition: background-color 0.15s ease;
   outline: none;
 }
 
-/* Hover + Focus accesible */
+.producto-mini:last-child { border-bottom: none; }
+
 .producto-mini:hover,
 .producto-mini:focus {
-  background-color: #4deeee;
+  background-color: #283593;
 }
 
-/* Imagen */
 .producto-mini img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
-/* Texto truncado accesible */
 .producto-nombre {
   flex: 1;
-  min-width: 0;
+  color: #ffffff;
+  font-size: 0.88rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: white;
-  font-size: 15px;
 }
-/* Para que el input sea accesible en móvil */
-.buscador-container input {
-  min-height: 44px;
+
+.producto-precio {
+  color: #c5cae9;
+  font-size: 0.82rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .buscador-container input {
+    width: 130px;
+  }
+  .buscador-container input:focus {
+    width: 160px;
+  }
+  .resultados-busqueda {
+    width: 260px;
+  }
 }

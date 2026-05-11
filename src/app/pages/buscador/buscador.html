@@ -1,51 +1,63 @@
 <div class="buscador-container" role="search" aria-label="Buscador de productos">
 
-  <!-- LABEL ACCESIBLE -->
-  <label for="buscador" class="visually-hidden">Buscar productos</label>
+  <!-- Label accesible visible solo para lectores de pantalla -->
+  <label for="buscador" class="sr-only">Buscar productos en la tienda</label>
 
-  <!-- INPUT ACCESIBLE -->
+  <!-- Input de búsqueda -->
   <input
     id="buscador"
     type="search"
     placeholder="Buscar producto..."
     [value]="busqueda"
     (input)="onBuscar($event)"
-    role="searchbox"
+    (keydown)="onKeyDownInput($event)"
     aria-label="Buscar productos"
     aria-controls="resultados-busqueda"
-    aria-expanded="{{ resultados.length > 0 }}"
+    [attr.aria-expanded]="resultados.length > 0"
+    aria-haspopup="listbox"
     autocomplete="off"
+    autocorrect="off"
+    spellcheck="false"
   />
 
-  <!-- REGIÓN DINÁMICA PARA LECTORES DE PANTALLA -->
-  <div aria-live="polite" class="visually-hidden">
-    {{ resultados.length }} resultados encontrados
+  <!-- Anuncio accesible para lectores de pantalla -->
+  <div aria-live="polite" aria-atomic="true" class="sr-only">
+    <ng-container *ngIf="resultados.length > 0">
+      {{ resultados.length }} resultados encontrados. Usa las flechas para navegar.
+    </ng-container>
+    <ng-container *ngIf="busqueda.length > 1 && resultados.length === 0">
+      No se encontraron productos para "{{ busqueda }}".
+    </ng-container>
   </div>
 
-  <!-- LISTA DE RESULTADOS ACCESIBLE -->
-  <div
+  <!-- Resultados -->
+  <ul
+    *ngIf="resultados.length > 0"
     id="resultados-busqueda"
     class="resultados-busqueda"
-    *ngIf="resultados.length > 0"
     role="listbox"
+    aria-label="Resultados de búsqueda"
   >
-    <div
+    <li
       *ngFor="let producto of resultados; let i = index"
       class="producto-mini"
-      (click)="irAProducto(producto)"
       role="option"
       tabindex="0"
       [attr.aria-selected]="false"
+      [attr.aria-label]="producto.nombre + ', ' + producto.precio + ' euros'"
+      (click)="irAProducto(producto)"
       (keydown)="onKeyDown($event, producto)"
     >
       <img
         [src]="producto.imagen"
         [alt]="producto.nombre"
+        width="50"
+        height="50"
+        loading="lazy"
       />
+      <span class="producto-nombre">{{ producto.nombre }}</span>
+      <span class="producto-precio">{{ producto.precio | number:'1.2-2' }} €</span>
+    </li>
+  </ul>
 
-      <div class="producto-nombre">
-        {{ producto.nombre }}
-      </div>
-    </div>
-  </div>
 </div>

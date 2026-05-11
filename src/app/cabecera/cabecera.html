@@ -1,79 +1,68 @@
 <nav class="navbar" aria-label="Navegación principal">
 
-  <!-- LOGO -->
+  <!-- LOGO izquierda -->
   <div class="logo">
-    <a routerLink="" aria-label="Ir a la página principal" aria-current="page">
+    <a routerLink="" aria-label="FashionStore - Ir a la página principal">
       FashionStore
     </a>
   </div>
 
-  <!-- BOTÓN MENÚ HAMBURGUESA ACCESIBLE -->
-  <button 
-    class="menu-toggle" 
+  <!-- BOTÓN HAMBURGUESA (solo móvil) -->
+  <button
+    class="menu-toggle"
     aria-label="Abrir menú de navegación"
     aria-expanded="false"
-    aria-pressed="false"
     aria-controls="menu-principal"
     type="button">
-      <span></span>
-      <span></span>
-      <span></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
   </button>
 
-  <!-- MENÚ PRINCIPAL -->
-  <ul class="nav-links" id="menu-principal" role="menubar">
+  <!-- MENÚ CENTRADO -->
+  <ul class="nav-links" id="menu-principal" role="menubar" aria-label="Menú principal">
     <li role="none">
-      <a role="menuitem" routerLink="camisetas" routerLinkActive="active" aria-current="page">Camisetas</a>
+      <a role="menuitem" routerLink="camisetas" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">Camisetas</a>
     </li>
     <li role="none">
-      <a role="menuitem" routerLink="pantalones" routerLinkActive="active" aria-current="page">Pantalones</a>
+      <a role="menuitem" routerLink="pantalones" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">Pantalones</a>
     </li>
     <li role="none">
-      <a role="menuitem" routerLink="chaquetas" routerLinkActive="active" aria-current="page">Chaquetas</a>
+      <a role="menuitem" routerLink="chaquetas" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">Chaquetas</a>
     </li>
     <li role="none">
-      <a role="menuitem" routerLink="accesorios" routerLinkActive="active" aria-current="page">Accesorios</a>
+      <a role="menuitem" routerLink="accesorios" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">Accesorios</a>
     </li>
     <li role="none">
-      <a role="menuitem" routerLink="zapatos" routerLinkActive="active" aria-current="page">Zapatos</a>
+      <a role="menuitem" routerLink="zapatos" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">Zapatos</a>
     </li>
-
     <li role="none">
-      <a 
-        role="menuitem"
-        routerLink="cesta" 
-        routerLinkActive="active"
-        aria-label="Ver cesta de la compra"
-        aria-current="page">
-        Cesta 🛒 <span id="cantidadCesta">{{ cantidadCesta }}</span>
+      <a role="menuitem" routerLink="cesta" routerLinkActive="active"
+         aria-label="Ver cesta de la compra, {{ cantidadCesta }} productos">
+        Cesta 🛒 <span aria-hidden="true">{{ cantidadCesta }}</span>
       </a>
     </li>
-
     <li role="none">
-      <a role="menuitem" routerLink="seccion-usuario" routerLinkActive="active" aria-current="page">
-        Sección usuario
+      <a role="menuitem" routerLink="seccion-usuario" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">
+        Mi cuenta
       </a>
     </li>
   </ul>
 
-  <!-- USUARIO -->
-  <ul class="usuario-buscador" role="navigation" aria-label="Opciones de usuario">
+  <!-- ZONA DERECHA: buscador + sesión -->
+  <div class="navbar-derecha">
+    <app-buscador role="search" aria-label="Buscador de productos"></app-buscador>
+
     <ng-container *ngIf="usuario">
-      <li class="usuario-nav">
-        <span class="usuario-nombre">{{ usuario }}</span>
-
-        <button 
-          class="btn-logout" 
-          (click)="cerrarSesion()"
-          aria-label="Cerrar sesión del usuario"
-          type="button">
-          Cerrar sesión
-        </button>
-      </li>
+      <span class="usuario-nombre" aria-live="polite">Hola, {{ usuario }}</span>
+      <button
+        class="btn-logout"
+        (click)="cerrarSesion()"
+        aria-label="Cerrar sesión del usuario {{ usuario }}"
+        type="button">
+        Salir
+      </button>
     </ng-container>
-  </ul>
-
-  <!-- BUSCADOR -->
-  <app-buscador aria-label="Buscador de productos" role="search"></app-buscador>
+  </div>
 
 </nav>

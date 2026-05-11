@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Producto } from '../../models/producto';
 import { RouterModule, Router } from '@angular/router';
@@ -13,48 +13,64 @@ import { BuscadorService } from '../../services/buscador.service';
   styleUrls: ['./buscador.css']
 })
 export class BuscadorComponent {
+
+  private buscadorService = inject(BuscadorService);
+  private router = inject(Router);
+
   busqueda: string = '';
   resultados: Producto[] = [];
 
-  constructor(private buscadorService: BuscadorService, private router: Router) {}
-
-  onBuscar(event: Event) {
+  onBuscar(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.busqueda = input.value;
-
-    if (this.busqueda.trim().length > 0) {
-      this.resultados = this.buscadorService.buscarProductos(this.busqueda);
-    } else {
-      this.resultados = [];
-    }
+    this.resultados = this.busqueda.trim().length > 0
+      ? this.buscadorService.buscarProductos(this.busqueda)
+      : [];
   }
 
-  irAProducto(producto: Producto) {
+  irAProducto(producto: Producto): void {
     this.router.navigate([`/${producto.categoria}`]);
+    this.cerrarResultados();
+  }
+
+  cerrarResultados(): void {
     this.resultados = [];
     this.busqueda = '';
   }
 
-  // ACCESIBILIDAD: navegación por teclado
-onKeyDown(event: KeyboardEvent, producto: Producto) {
-  const target = event.target as HTMLElement;
-
-  if (event.key === 'ArrowDown') {
-    event.preventDefault();
-    const next = target.nextElementSibling as HTMLElement;
-    if (next) next.focus();
+  onKeyDownInput(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      this.cerrarResultados();
+      return;
+    }
+    if (event.key === 'ArrowDown' && this.resultados.length > 0) {
+      event.preventDefault();
+      const primera = document.querySelector('.producto-mini') as HTMLElement;
+      primera?.focus();
+    }
   }
 
-  if (event.key === 'ArrowUp') {
-    event.preventDefault();
-    const prev = target.previousElementSibling as HTMLElement;
-    if (prev) prev.focus();
+  onKeyDown(event: KeyboardEvent, producto: Producto): void {
+    const target = event.target as HTMLElement;
+    switch (event.key) {
+      case 'ArrowDown':
+        event.preventDefault();
+        (target.nextElementSibling as HTMLElement)?.focus();
+        break;
+      case 'ArrowUp':
+        event.preventDefault();
+        const prev = target.previousElementSibling as HTMLElement;
+        prev ? prev.focus() : document.getElementById('buscador')?.focus();
+        break;
+      case 'Enter':
+      case ' ':
+        event.preventDefault();
+        this.irAProducto(producto);
+        break;
+      case 'Escape':
+        this.cerrarResultados();
+        document.getElementById('buscador')?.focus();
+        break;
+    }
   }
-
-  if (event.key === 'Enter' || event.key === ' ') {
-    event.preventDefault();
-    this.irAProducto(producto);
-  }
-}
-
 }
